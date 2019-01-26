@@ -1,0 +1,12 @@
+{
+	"outside": {
+		"name": "Outside",
+		"description": "You are outside.",
+		"links": {
+			"one": {
+				"text": "Go inside.",
+				"href": "#"
+			}
+		}
+	}
+}
