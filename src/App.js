@@ -12,7 +12,8 @@ class App extends Component {
     this.followLink = this.followLink.bind(this);
   }
 
-  followLink(dest) {
+	// Allows <Links /> to update state of <App />
+	followLink(dest) {
     this.setState(state => ({
       room: dest
     }));
