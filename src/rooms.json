@@ -5,7 +5,17 @@
 		"links": {
 			"one": {
 				"text": "Go inside.",
-				"href": "#"
+				"href": "inside"
+			}
+		}
+	},
+		"inside": {
+		"name": "Inside",
+		"description": "You are inside.",
+		"links": {
+			"one": {
+				"text": "Go outside.",
+				"href": "outside"
 			}
 		}
 	}
