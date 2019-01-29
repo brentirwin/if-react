@@ -9,7 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       room: "outside",
-      extraText: []
+      extraText: [],
+      hiddenSoftLinks: []
     };
 
     this.followLink = this.followLink.bind(this);
@@ -20,13 +21,15 @@ class App extends Component {
 	followLink(dest) {
     this.setState(state => ({
       room: dest,
-      extraText: []
+      extraText: [],
+      hiddenSoftLinks: []
     }));
   }
 
-  softLink(text) {
+  softLink(text, key) {
     this.setState({
-      extraText: [...this.state.extraText, text]
+      extraText: [...this.state.extraText, text],
+      hiddenSoftLinks: [...this.state.hiddenSoftLinks, key]
     });
   }
 
@@ -38,7 +41,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Room room={currentRoom} extraText={this.state.extraText}/>
-          <Links links={currentRoom.soft_links} handleClick={this.softLink}/>
+          <Links
+            links={currentRoom.soft_links}
+            handleClick={this.softLink}
+            hidden={this.state.hiddenSoftLinks} />
           <Links links={currentRoom.links} handleClick={this.followLink}/>
         </header>
       </div>
