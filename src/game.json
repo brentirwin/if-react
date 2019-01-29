@@ -1,0 +1,34 @@
+{
+	"rooms": {
+		"outside": {
+			"name": "Outside",
+			"description": "You are outside.",
+			"links": [
+				{
+					"text": "Go inside.",
+					"href": "inside"
+				}
+			]
+		},
+		"inside": {
+			"name": "Inside",
+			"description": "You are inside.",
+			"soft-links": [
+				{
+					"text": "Show more text.",
+					"extra": "I made more text appear!"
+				}
+			],
+			"links": [
+				{
+					"text": "Go outside.",
+					"href": "outside"
+				},
+				{
+					"text": "Also go outside.",
+					"href": "outside"
+				}
+			]
+		}
+	}
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import rooms from './rooms.json';
+import game from './game.json';
 import './App.css';
 import { Room } from './room.js';
 import { Links } from './links.js';
@@ -21,7 +21,7 @@ class App extends Component {
 
   render() {
 
-    let currentRoom = rooms[this.state.room];
+    let currentRoom = game["rooms"][this.state.room];
 
     return (
       <div className="App">
