@@ -6,27 +6,27 @@
 			"links": [
 				{
 					"text": "Go inside.",
-					"href": "inside"
+					"action": "inside"
 				}
 			]
 		},
 		"inside": {
 			"name": "Inside",
 			"description": "You are inside.",
-			"soft-links": [
+			"soft_links": [
 				{
 					"text": "Show more text.",
-					"extra": "I made more text appear!"
+					"action": "I made more text appear!"
 				}
 			],
 			"links": [
 				{
 					"text": "Go outside.",
-					"href": "outside"
+					"action": "outside"
 				},
 				{
 					"text": "Also go outside.",
-					"href": "outside"
+					"action": "outside"
 				}
 			]
 		}

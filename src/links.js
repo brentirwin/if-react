@@ -3,18 +3,20 @@ import React, { Component } from 'react';
 export class Links extends Component {
 	render () {
 
-  let currentRoom = this.props.room;
+  let currentLinks = this.props.links;
   var handleClick = this.props.handleClick;
+
+  if (!currentLinks) return null;
 
 	// Assigns the function passed from <App /> to each respective link
 	// Returns array of <li>'s with proper actions when you click them
-  const links = Object.keys(currentRoom.links).map( (key, index) => {
+  const links = Object.keys(currentLinks).map( (key, index) => {
   	let arr = [];
-    let link = currentRoom.links[key];
+    let link = currentLinks[key];
     let item = (
       <li key={index}>
       	<a href='#'
-      		 onClick={() => handleClick(link.href)}>
+      		 onClick={() => handleClick(link.action)}>
       		{link.text}
     		</a>
     	</li>

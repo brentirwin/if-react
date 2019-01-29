@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
 import game from './game.json';
 import './App.css';
-import { Room } from './room.js';
-import { Links } from './links.js';
+import { Room } from './Room.js';
+import { Links } from './Links.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {room: "outside"};
+    this.state = {
+      room: "outside",
+      extraText: []
+    };
 
     this.followLink = this.followLink.bind(this);
+    this.softLink = this.softLink.bind(this);
   }
 
 	// Allows <Links /> to update state of <App />
 	followLink(dest) {
     this.setState(state => ({
-      room: dest
+      room: dest,
+      extraText: []
     }));
+  }
+
+  softLink(text) {
+    this.setState({
+      extraText: [...this.state.extraText, text]
+    });
   }
 
   render() {
@@ -26,8 +37,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Room room={currentRoom} />
-          <Links room={currentRoom} handleClick={this.followLink}/>
+          <Room room={currentRoom} extraText={this.state.extraText}/>
+          <Links links={currentRoom.soft_links} handleClick={this.softLink}/>
+          <Links links={currentRoom.links} handleClick={this.followLink}/>
         </header>
       </div>
     );
