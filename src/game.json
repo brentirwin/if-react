@@ -1,4 +1,32 @@
 {
+	"variables": {
+		"preset": [
+			{
+				"name": "is_your_mom",
+				"value": true
+			},
+			{
+				"name": "is_your_dad",
+			 	"value": "Pops"
+			},
+			{
+				"name": "my_age",
+				"value": 25
+			}
+		],
+		"random": [
+			{
+				"name": "multiple_choice",
+			 	"value":	[1, 2, 3, 4]
+			}
+		],
+		"permutation": [
+			{
+				"names": ["q1", "q2"],
+				"values": [1, 2, 3, 4]
+			}
+		]
+	},
 	"rooms": {
 		"outside": {
 			"name": "Outside",
