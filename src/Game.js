@@ -22,13 +22,13 @@ export class Game extends Component {
 
 		// Preset variables
 		let preset = rawVar.preset;
-		for (var key in preset) {
+		for (let key in preset) {
 			variables[preset[key].name] = preset[key].value;
 		}
 
 		// Variables with randomly selected values
 		let random = rawVar.random;
-		for (var key in random) {
+		for (let key in random) {
 			variables[random[key].name] =
 				random[key].value[Math.floor(Math.random()*random[key].value.length)];
 		}
@@ -36,14 +36,11 @@ export class Game extends Component {
 		// Multiple variables with randomly selected values
 		// Pulling from the same pool, with no repeats
 		let perm = rawVar.permutation;
-		for (var key in perm) {
+		for (let key in perm) {
 			let values = [];
 			let names = perm[key].names;
-			// Add first value
-			values.push(
-				perm[key].values[Math.floor(Math.random()*perm[key].values.length)]);
-			// Add subsequent, non-repeating values
-			for (let i=1; i<names.length; i++) {
+			// Add random, non-repeating values
+			for (let i=0; i<names.length; i++) {
 				let newValue;
 				do {
 				newValue =
@@ -63,6 +60,7 @@ export class Game extends Component {
 	}
 
   render() {
+  	console.log(this.state.variables);
   	const game = this.props.game;
     return (
           <RoomController game={game} />
