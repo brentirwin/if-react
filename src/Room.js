@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Paragraph } from './Paragraph.js';
 
 export class Room extends Component {
   render() {
@@ -7,13 +8,13 @@ export class Room extends Component {
 
   	// Map extra text insto series of <p>
   	const extra = extraText.map((p) =>
-  		<p>{p}</p>
+  		<Paragraph text={p} variables={this.props.variables} />
   	);
 
     return (
       <div>
         <h1 className="room-name">{this.props.room.name}</h1>
-        <p className="flavor-text">{this.props.room.description}</p>
+        <Paragraph text={this.props.room.description} variables={this.props.variables}/>
         {extra}
       </div>
     );

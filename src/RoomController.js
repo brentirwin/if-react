@@ -46,14 +46,15 @@ export class RoomController extends Component {
       <div className="Room">
         <Room
           room={currentRoom}
-          extraText={this.state.extraText}/>
+          extraText={this.state.extraText}
+          variables={this.props.variables} />
         <Links
           links={currentRoom.soft_links}
           handleClick={this.softLink}
           hidden={this.state.hiddenSoftLinks} />
         <Links
           links={currentRoom.links}
-          handleClick={this.followLink}/>
+          handleClick={this.followLink} />
       </div>
     );
   }

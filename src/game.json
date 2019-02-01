@@ -30,7 +30,9 @@
 	"rooms": {
 		"outside": {
 			"name": "Outside",
-			"description": "You are outside.",
+			"description": ["You are outside. ",
+											"$is_your_dad",
+											" Yes, you are."],
 			"links": [
 				{
 					"text": "Go inside.",

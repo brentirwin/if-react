@@ -11,14 +11,13 @@ import { RoomController } from './RoomController.js';
 export class Game extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			variables: {}
 		};
-	}
-
-	componentDidMount() {
+	
 		const rawVar = this.props.game.variables;
-		let variables = {};
+		let variables = this.state.variables;
 
 		// Preset variables
 		let preset = rawVar.preset;
@@ -53,17 +52,14 @@ export class Game extends Component {
 				variables[perm[key].names[i]] = values[i];
 			}
 		}
-
-		this.setState({
-			variables: { variables }
-		});
+		
+		this.state.variables = variables;
 	}
 
   render() {
-  	console.log(this.state.variables);
   	const game = this.props.game;
     return (
-          <RoomController game={game} />
+          <RoomController game={game} variables={this.state.variables}/>
     );
   }
 }
