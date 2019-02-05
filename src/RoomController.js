@@ -19,6 +19,7 @@ export class RoomController extends Component {
 
     this.followLink = this.followLink.bind(this);
     this.softLink = this.softLink.bind(this);
+    this.createRoom = this.createRoom.bind(this);
   }
 
 	// Allows <Links /> to update state of <App />
@@ -37,10 +38,28 @@ export class RoomController extends Component {
     });
   }
 
+  createRoom(room, output) {
+    console.log(room);
+    for (let i in room) {
+      if (i === "conditions" || i === "true" || i === "false") continue;
+      output[i] = room[i];
+    }
+    if (room.hasOwnProperty("conditions")) {
+      for (let i in room.conditions) {
+        let condition = room.conditions[i];
+        if ((condition.hasOwnProperty("true") && this.props.variables[condition.true]) ||
+            (condition.hasOwnProperty("false") && !this.props.variables[condition.false]))
+          this.createRoom(condition, output);
+      }
+    }
+  }
+
   render() {
 
     const game = this.props.game;
-    const currentRoom = game["rooms"][this.state.room];
+    let currentRoom = {};
+    console.log(game["rooms"].conditional);
+    this.createRoom(game["rooms"][this.state.room], currentRoom);
 
     return (
       <div className="Room">

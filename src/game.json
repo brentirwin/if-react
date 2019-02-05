@@ -12,6 +12,14 @@
 			{
 				"name": "my_age",
 				"value": 25
+			},
+			{
+				"name": "bool1",
+				"value": true
+			},
+			{
+				"name": "bool2",
+				"value": false
 			}
 		],
 		"random": [
@@ -37,6 +45,10 @@
 				{
 					"text": "Go inside.",
 					"action": "inside"
+				},
+				{
+					"text": "The conditional room.",
+					"action": "conditional"
 				}
 			]
 		},
@@ -57,6 +69,30 @@
 				{
 					"text": "Also go outside.",
 					"action": "outside"
+				}
+			]
+		},
+		"conditional": {
+			"name": "The conditional room",
+			"description": "You will never see me!",
+			"links": [{
+				"text": "Back outside.",
+				"action": "outside"
+			}],
+			"conditions": [
+				{
+					"true": "bool1",
+					"description": "1 is true, 2 is false",
+					"conditions": [
+						{
+							"true": "bool2",
+							"description": "1 and 2 are both true!"
+						}
+					]
+				},
+				{
+					"false": "bool1",
+					"description": "1 is false!"
 				}
 			]
 		}
