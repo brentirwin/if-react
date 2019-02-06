@@ -61,7 +61,7 @@
 		},
 		"inside": {
 			"name": "Inside",
-			"description": "You are inside.",
+			"description": ["You are inside.\nThis is a new line"],
 			"soft_links": [
 				{
 					"text": "Show more text.",
@@ -104,7 +104,7 @@
 				},
 				{
 					"text": "Toggle bool1 and bool2",
-					"action": "Did it.",
+					"action": "",
 					"updates": {
 						"toggle": ["bool1", "bool2"]
 					}

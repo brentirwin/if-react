@@ -2,19 +2,28 @@ import React, { Component } from 'react';
 
 export class Paragraph extends Component {
 	render() {
-		var text = this.props.text.slice();
+		const text = this.props.text.slice();
+		let newText = "";
 
 		// If the description is in an array, this is because it has variables
 		// Find the variables and splice them in.
 		if (text.constructor === Array) {
 			for (let i=0; i<text.length; i++) {
 				let item = text[i];
-				if (text[i][0] === '$') {
-					let variable = text[i].substring(1);
-					text[i] = this.props.variables[variable];
+				if (item[0] === '$') {
+					let variable = item.substring(1);
+					item = this.props.variables[variable];
 				}
+				newText += item;
 			}
+		} else {
+			newText = text;
 		}
-		return <p className="flavor-text">{text}</p>;
+
+		const description = newText.split('\n').map((paragraph) =>
+			<p>{paragraph}</p>
+		);
+
+		return <div className="flavor-text">{description}</div>;
 	}
 }
