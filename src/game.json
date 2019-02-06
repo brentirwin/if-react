@@ -20,6 +20,10 @@
 			{
 				"name": "bool2",
 				"value": false
+			},
+			{
+				"name": "hasBeenInside",
+				"value": false
 			}
 		],
 		"random": [
@@ -44,7 +48,10 @@
 			"links": [
 				{
 					"text": "Go inside.",
-					"action": "inside"
+					"action": "inside",
+					"updates": {
+						"true": ["hasBeenInside"]
+					}
 				},
 				{
 					"text": "The conditional room.",
@@ -79,6 +86,30 @@
 				"text": "Back outside.",
 				"action": "outside"
 			}],
+			"soft_links": [
+				{
+					"text": "Make bool1 true and bool2 false",
+					"action": "Did it.",
+					"updates": {
+						"true": ["bool1"],
+						"false": ["bool2"]
+					}
+				},
+				{
+					"text": "Make bool1 and bool2 false",
+					"action": "Did it.",
+					"updates" : {
+						"false": ["bool1", "bool2"]
+					}
+				},
+				{
+					"text": "Toggle bool1 and bool2",
+					"action": "Did it.",
+					"updates": {
+						"toggle": ["bool1", "bool2"]
+					}
+				}
+			],
 			"conditions": [
 				{
 					"true": "bool1",

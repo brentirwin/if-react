@@ -6,6 +6,7 @@ export class Links extends Component {
   let currentLinks = this.props.links;
   var handleClick = this.props.handleClick;
   let hiddenLinks = this.props.hidden;
+  let variables = this.props.variables;
 
   if (!currentLinks) return null;
 
@@ -14,14 +15,27 @@ export class Links extends Component {
   const links = Object.keys(currentLinks).map( (key, index) => {
   	let arr = [];
     let link = currentLinks[key];
+
+    let bools = {};
+    if (link.hasOwnProperty('updates')) {
+      const changes = link.updates;
+      if (changes.hasOwnProperty('true'))
+        for (let i in changes.true) bools[changes.true[i]] = true;
+      if (changes.hasOwnProperty('false'))
+        for (let i in changes.false) bools[changes.false[i]] = false;
+      if (changes.hasOwnProperty('toggle'))
+        for (let i in changes.toggle)
+          bools[changes.toggle[i]] = !variables[changes.toggle[i]];
+    }
+
     let item;
     if (!hiddenLinks || !hiddenLinks.includes(index)) {
       item = (
         <li key={index}>
-        	<a href='#'
-        		 onClick={() => handleClick(link.action, index)}>
+        	<button
+        		 onClick={() => handleClick(link.action, index, bools)}>
         		{link.text}
-      		</a>
+      		</button>
       	</li>
       );
       arr.push(item);

@@ -23,23 +23,24 @@ export class RoomController extends Component {
   }
 
 	// Allows <Links /> to update state of <App />
-	followLink(dest) {
-    this.setState(state => ({
+	followLink(dest, key, bools) {
+    this.setState({
       room: dest,
       extraText: [],
       hiddenSoftLinks: []
-    }));
+    });
+    this.props.updateVars(bools);
   }
 
-  softLink(text, key) {
+  softLink(text, key, bools) {
     this.setState({
       extraText: [...this.state.extraText, text],
       hiddenSoftLinks: [...this.state.hiddenSoftLinks, key]
     });
+    this.props.updateVars(bools);
   }
 
   createRoom(room, output) {
-    console.log(room);
     for (let i in room) {
       if (i === "conditions" || i === "true" || i === "false") continue;
       output[i] = room[i];
@@ -58,7 +59,6 @@ export class RoomController extends Component {
 
     const game = this.props.game;
     let currentRoom = {};
-    console.log(game["rooms"].conditional);
     this.createRoom(game["rooms"][this.state.room], currentRoom);
 
     return (
@@ -70,10 +70,12 @@ export class RoomController extends Component {
         <Links
           links={currentRoom.soft_links}
           handleClick={this.softLink}
-          hidden={this.state.hiddenSoftLinks} />
+          hidden={this.state.hiddenSoftLinks}
+          variables={this.props.variables} />
         <Links
           links={currentRoom.links}
-          handleClick={this.followLink} />
+          handleClick={this.followLink}
+          variables={this.props.variables} />
       </div>
     );
   }

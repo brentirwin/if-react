@@ -54,12 +54,23 @@ export class Game extends Component {
 		}
 		
 		this.state.variables = variables;
+
+		this.updateVars = this.updateVars.bind(this);
+	}
+
+	updateVars(object) {
+		let copy = JSON.parse(JSON.stringify(this.state.variables));
+		for (let i in object) copy[i] = object[i];
+		this.setState({variables: copy});
 	}
 
   render() {
   	const game = this.props.game;
     return (
-          <RoomController game={game} variables={this.state.variables}/>
+          <RoomController
+          	game={game}
+          	variables={this.state.variables}
+          	updateVars={this.updateVars} />
     );
   }
 }
