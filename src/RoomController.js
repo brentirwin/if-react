@@ -11,7 +11,7 @@ export class RoomController extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      room: "outside", // Starting room will need to come from props in future, see resetGame()
+      room: "home", // Starting room will need to come from props in future, see resetGame()
       extraText: [],
       hiddenSoftLinks: [],
       gameover: false
@@ -64,7 +64,7 @@ export class RoomController extends Component {
 
   resetGame() {
     this.setState({
-      room: "outside",
+      room: this.props.startRoom,
       gameover: false
     });
     this.props.resetGame();
@@ -75,6 +75,7 @@ export class RoomController extends Component {
     const roomLocation = this.state.gameover ? game.rooms.gameover : game.rooms;
     let currentRoom = {};
     this.createRoom(roomLocation[this.state.room], currentRoom);
+	const firstRoom = this.state.room === "home" ? true : false;
 
     return (
       <Room
@@ -88,6 +89,8 @@ export class RoomController extends Component {
         linksClick={this.followLink}
         resetGame={this.resetGame}
         gameover={this.state.gameover}
+		firstRoom={firstRoom}
+		startRoom={this.props.startRoom}
       />
     );
   }

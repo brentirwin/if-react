@@ -17,6 +17,11 @@ export class Room extends Component {
       ""
     );
 
+	console.log(this.props.firstRoom);
+	const startGame = this.props.firstRoom ? (
+		<button onClick={() => this.props.linksClick(this.props.startRoom)}>Start game</button> 
+	) : "";
+
     return (
       <div className="room">
         <h1 className="room-name">{this.props.room.name}</h1>
@@ -37,6 +42,7 @@ export class Room extends Component {
           variables={this.props.variables}
         />
         {gameover}
+		{startGame}
       </div>
     );
   }
