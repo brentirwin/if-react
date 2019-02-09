@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Room } from "./Room.js";
-import { Links } from "./Links.js";
 
 /*
   RoomController.js is like the view for this program.
@@ -12,7 +11,7 @@ export class RoomController extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      room: "outside",  // Starting room will need to come from props in future, see resetGame()
+      room: "outside", // Starting room will need to come from props in future, see resetGame()
       extraText: [],
       hiddenSoftLinks: [],
       gameover: false
@@ -64,7 +63,7 @@ export class RoomController extends Component {
   }
 
   resetGame() {
-    this.setState({room: "outside"});
+    this.setState({ room: "outside" });
     this.props.resetGame();
   }
 
@@ -80,19 +79,13 @@ export class RoomController extends Component {
           room={currentRoom}
           extraText={this.state.extraText}
           variables={this.props.variables}
-        />
-        <Links
-          links={currentRoom.soft_links}
-          handleClick={this.softLink}
+          softLinks={currentRoom.soft_links}
+          softLinksClick={this.softLink}
           hidden={this.state.hiddenSoftLinks}
-          variables={this.props.variables}
-        />
-        <Links
           links={currentRoom.links}
-          handleClick={this.followLink}
-          variables={this.props.variables}
+          linksClick={this.followLink}
+          resetGame={this.resetGame}
         />
-        <button onClick={() => this.resetGame()}>Reset</button>
       </div>
     );
   }
