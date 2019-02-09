@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import game from './game.json';
-import './App.css';
-import { Game } from './Game.js';
+import React, { Component } from "react";
+import game from "./game.json";
+import "./App.css";
+import { Game } from "./Game.js";
 
 /*
   App.js is the whole app.
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Game game={game}/>
+          <Game game={game} />
         </header>
       </div>
     );

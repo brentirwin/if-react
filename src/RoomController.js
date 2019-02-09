@@ -74,19 +74,17 @@ export class RoomController extends Component {
     this.createRoom(roomLocation[this.state.room], currentRoom);
 
     return (
-      <div className="Room">
-        <Room
-          room={currentRoom}
-          extraText={this.state.extraText}
-          variables={this.props.variables}
-          softLinks={currentRoom.soft_links}
-          softLinksClick={this.softLink}
-          hidden={this.state.hiddenSoftLinks}
-          links={currentRoom.links}
-          linksClick={this.followLink}
-          resetGame={this.resetGame}
-        />
-      </div>
+      <Room
+        room={currentRoom}
+        extraText={this.state.extraText}
+        variables={this.props.variables}
+        softLinks={currentRoom.soft_links}
+        softLinksClick={this.softLink}
+        hidden={this.state.hiddenSoftLinks}
+        links={currentRoom.links}
+        linksClick={this.followLink}
+        resetGame={this.resetGame}
+      />
     );
   }
 }

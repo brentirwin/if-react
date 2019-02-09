@@ -7,7 +7,7 @@
 			},
 			{
 				"name": "is_your_dad",
-			 	"value": "Pops"
+				"value": "Pops"
 			},
 			{
 				"name": "my_age",
@@ -29,7 +29,7 @@
 		"random": [
 			{
 				"name": "multiple_choice",
-			 	"value":	[1, 2, 3, 4]
+				"value": [1, 2, 3, 4]
 			}
 		],
 		"permutation": [
@@ -42,9 +42,7 @@
 	"rooms": {
 		"outside": {
 			"name": "Outside",
-			"description": ["You are outside. ",
-											"$is_your_dad",
-											" Yes, you are."],
+			"description": ["You are outside. ", "$is_your_dad", " Yes, you are."],
 			"links": [
 				{
 					"text": "Go inside.",
@@ -86,10 +84,12 @@
 		"conditional": {
 			"name": "The conditional room",
 			"description": "You will never see me!",
-			"links": [{
-				"text": "Back outside.",
-				"action": "outside"
-			}],
+			"links": [
+				{
+					"text": "Back outside.",
+					"action": "outside"
+				}
+			],
 			"soft_links": [
 				{
 					"text": "Make bool1 true and bool2 false",
@@ -102,7 +102,7 @@
 				{
 					"text": "Make bool1 and bool2 false",
 					"action": "Did it.",
-					"updates" : {
+					"updates": {
 						"false": ["bool1", "bool2"]
 					}
 				},
