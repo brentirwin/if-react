@@ -15,7 +15,17 @@ export class Game extends Component {
 		this.state = {
 			variables: {}
 		};
-	
+
+		this.updateVars = this.updateVars.bind(this);
+		this.initVars = this.initVars.bind(this);
+
+		// this.initVars();
+	}
+
+	componentDidMount = () => this.initVars();
+
+	// Creating randomized variables
+	initVars() {
 		const rawVar = this.props.game.variables;
 		let variables = this.state.variables;
 
@@ -53,9 +63,8 @@ export class Game extends Component {
 			}
 		}
 		
-		this.state.variables = variables;
-
-		this.updateVars = this.updateVars.bind(this);
+		this.setState({variables: variables});
+		// this.state.variables = variables;
 	}
 
 	updateVars(object) {
@@ -70,7 +79,8 @@ export class Game extends Component {
           <RoomController
           	game={game}
           	variables={this.state.variables}
-          	updateVars={this.updateVars} />
+          	updateVars={this.updateVars}
+          	resetGame={this.initVars} />
     );
   }
 }

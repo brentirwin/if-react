@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Room } from './Room.js';
-import { Links } from './Links.js';
+import React, { Component } from "react";
+import { Room } from "./Room.js";
+import { Links } from "./Links.js";
 
 /*
   RoomController.js is like the view for this program.
@@ -12,19 +12,20 @@ export class RoomController extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      room: "outside",
+      room: "outside",  // Starting room will need to come from props in future, see resetGame()
       extraText: [],
       hiddenSoftLinks: [],
-      gameover: false,
+      gameover: false
     };
 
     this.followLink = this.followLink.bind(this);
     this.softLink = this.softLink.bind(this);
     this.createRoom = this.createRoom.bind(this);
+    this.resetGame = this.resetGame.bind(this);
   }
 
-	// Allows <Links /> to update state of <App />
-	followLink(dest, key, bools, gameover) {
+  // Allows <Links /> to update state of <App />
+  followLink(dest, key, bools, gameover) {
     this.setState({
       room: dest,
       extraText: [],
@@ -51,18 +52,26 @@ export class RoomController extends Component {
     if (room.hasOwnProperty("conditions")) {
       for (let i in room.conditions) {
         let condition = room.conditions[i];
-        if ((condition.hasOwnProperty("true") && this.props.variables[condition.true]) ||
-            (condition.hasOwnProperty("false") && !this.props.variables[condition.false]))
+        if (
+          (condition.hasOwnProperty("true") &&
+            this.props.variables[condition.true]) ||
+          (condition.hasOwnProperty("false") &&
+            !this.props.variables[condition.false])
+        )
           this.createRoom(condition, output);
       }
     }
+  }
+
+  resetGame() {
+    this.setState({room: "outside"});
+    this.props.resetGame();
   }
 
   render() {
     const game = this.props.game;
     const roomLocation = this.state.gameover ? game.rooms.gameover : game.rooms;
     let currentRoom = {};
-    console.log(roomLocation, this.state.room, this.state.gameover);
     this.createRoom(roomLocation[this.state.room], currentRoom);
 
     return (
@@ -70,16 +79,20 @@ export class RoomController extends Component {
         <Room
           room={currentRoom}
           extraText={this.state.extraText}
-          variables={this.props.variables} />
+          variables={this.props.variables}
+        />
         <Links
           links={currentRoom.soft_links}
           handleClick={this.softLink}
           hidden={this.state.hiddenSoftLinks}
-          variables={this.props.variables} />
+          variables={this.props.variables}
+        />
         <Links
           links={currentRoom.links}
           handleClick={this.followLink}
-          variables={this.props.variables} />
+          variables={this.props.variables}
+        />
+        <button onClick={() => this.resetGame()}>Reset</button>
       </div>
     );
   }

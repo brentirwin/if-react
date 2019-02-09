@@ -20,8 +20,8 @@ export class Paragraph extends Component {
 			newText = text;
 		}
 
-		const description = newText.split('\n').map((paragraph) =>
-			<p>{paragraph}</p>
+		const description = newText.split('\n').map((paragraph, index) =>
+			<p key={index}>{paragraph}</p>
 		);
 
 		return <div className="flavor-text">{description}</div>;
