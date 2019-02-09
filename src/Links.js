@@ -16,6 +16,7 @@ export class Links extends Component {
   	let arr = [];
     let link = currentLinks[key];
 
+    // Does it change any game.state bools?
     let bools = {};
     if (link.hasOwnProperty('updates')) {
       const changes = link.updates;
@@ -28,12 +29,18 @@ export class Links extends Component {
           bools[changes.toggle[i]] = !variables[changes.toggle[i]];
     }
 
+    // Is it a game over?
+    const gameover = link.action.startsWith("gameover.") ? true : false;
+    const destination = gameover ? link.action.substring(9) : link.action;
+    console.log(link.action, gameover, destination);              
+
+    // Generate the button
     let item;
     if (!hiddenLinks || !hiddenLinks.includes(index)) {
       item = (
         <li key={index}>
         	<button
-        		 onClick={() => handleClick(link.action, index, bools)}>
+        		 onClick={() => handleClick(destination, index, bools, gameover)}>
         		{link.text}
       		</button>
       	</li>

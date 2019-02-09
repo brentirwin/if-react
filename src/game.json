@@ -56,6 +56,10 @@
 				{
 					"text": "The conditional room.",
 					"action": "conditional"
+				},
+				{
+					"text": "Go die.",
+					"action": "gameover.room1"
 				}
 			]
 		},
@@ -126,6 +130,12 @@
 					"description": "1 is false!"
 				}
 			]
+		},
+		"gameover": {
+			"room1": {
+				"name": "You died.",
+				"description": "Game over."
+			}
 		}
 	}
 }
