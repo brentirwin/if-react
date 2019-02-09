@@ -63,7 +63,10 @@ export class RoomController extends Component {
   }
 
   resetGame() {
-    this.setState({ room: "outside" });
+    this.setState({
+      room: "outside",
+      gameover: false
+    });
     this.props.resetGame();
   }
 
@@ -84,6 +87,7 @@ export class RoomController extends Component {
         links={currentRoom.links}
         linksClick={this.followLink}
         resetGame={this.resetGame}
+        gameover={this.state.gameover}
       />
     );
   }

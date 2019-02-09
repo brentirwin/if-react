@@ -11,6 +11,12 @@ export class Room extends Component {
       <Paragraph key={index} text={p} variables={this.props.variables} />
     ));
 
+    const gameover = this.props.gameover ? (
+      <button onClick={() => this.props.resetGame()}>Reset</button>
+    ) : (
+      ""
+    );
+
     return (
       <div className="room">
         <h1 className="room-name">{this.props.room.name}</h1>
@@ -30,7 +36,7 @@ export class Room extends Component {
           handleClick={this.props.linksClick}
           variables={this.props.variables}
         />
-        <button onClick={() => this.props.resetGame()}>Reset</button>
+        {gameover}
       </div>
     );
   }
