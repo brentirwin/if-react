@@ -13,6 +13,7 @@ export class Game extends Component {
 		super(props);
 
 		this.state = {
+			startRoom: this.props.game.rooms.home.start,
 			variables: {}
 		};
 
@@ -74,12 +75,14 @@ export class Game extends Component {
 
 	render() {
 		const game = this.props.game;
+		console.log(this.state.firstRoom);
 		return (
 			<RoomController
 				game={game}
 				variables={this.state.variables}
 				updateVars={this.updateVars}
 				resetGame={this.initVars}
+				startRoom={this.state.startRoom}
 			/>
 		);
 	}

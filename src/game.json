@@ -40,6 +40,11 @@
 		]
 	},
 	"rooms": {
+		"home": {
+			"name": "if-react",
+			"description": "This is the homepage.",
+			"start": "outside"
+		},
 		"outside": {
 			"name": "Outside",
 			"description": ["You are outside. ", "$is_your_dad", " Yes, you are."],
