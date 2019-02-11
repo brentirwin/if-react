@@ -142,5 +142,15 @@
 				"description": "Game over."
 			}
 		}
+	},
+	"inventory": {
+		"pickaxe": {
+			"name": "Pickaxe",
+			"conditions": {
+				"room": "inside",
+				"bool1": "true"
+			},
+			"destination": "gameover.victory"
+		}
 	}
 }
