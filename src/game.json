@@ -140,17 +140,27 @@
 			"room1": {
 				"name": "You died.",
 				"description": "Game over."
+			},
+			"victory": {
+				"name": "You win!",
+				"description": "With your pickaxe!"
 			}
 		}
 	},
 	"inventory": {
 		"pickaxe": {
 			"name": "Pickaxe",
-			"conditions": {
-				"room": "inside",
-				"bool1": "true"
-			},
-			"destination": "gameover.victory"
+			"conditions": [
+				{
+					"room": "inside",
+					"destination": "gameover.victory"
+				},
+				{
+					"room": "outside",
+					"destination": "gameover.room1"
+				}
+			],
+			"default": "Ain't nothing to pick here."
 		}
 	}
 }
