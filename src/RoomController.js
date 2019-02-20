@@ -82,6 +82,7 @@ export class RoomController extends Component {
         room={currentRoom}
         extraText={this.state.extraText}
         variables={this.props.variables}
+	inventory={this.props.inventory}
         softLinks={currentRoom.soft_links}
         softLinksClick={this.softLink}
         hidden={this.state.hiddenSoftLinks}

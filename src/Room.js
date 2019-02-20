@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Paragraph } from "./Paragraph.js";
 import { Links } from "./Links.js";
+import { Inventory } from "./Inventory.js";
 
 export class Room extends Component {
   render() {
@@ -17,11 +18,16 @@ export class Room extends Component {
       ""
     );
 
-	console.log(this.props.firstRoom);
 	const startGame = this.props.firstRoom ? (
 		<button onClick={() => this.props.linksClick(this.props.startRoom)}>Start game</button> 
 	) : "";
 
+	const inventory = this.props.firstRoom ? "" : (
+		<Inventory inventory={this.props.inventory} />
+	);
+
+
+	  console.log(this.props.inventory);
     return (
       <div className="room">
         <h1 className="room-name">{this.props.room.name}</h1>
@@ -41,7 +47,8 @@ export class Room extends Component {
           handleClick={this.props.linksClick}
           variables={this.props.variables}
         />
-        {gameover}
+        	{inventory}
+	    {gameover}
 		{startGame}
       </div>
     );

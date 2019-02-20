@@ -87,6 +87,7 @@ export class Game extends Component {
 				game={game}
 				variables={this.state.variables}
 				updateVars={this.updateVars}
+				inventory={this.state.inventory}
 				resetGame={this.initVars}
 				startRoom={this.state.startRoom}
 			/>
