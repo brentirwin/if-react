@@ -64,7 +64,13 @@ export class Game extends Component {
 			}
 		}
 
-		this.setState({ variables: variables });
+		// Inventory
+		const inv = JSON.parse(JSON.stringify(this.props.game.inventory));
+
+		this.setState({
+			variables: variables,
+			inventory: inv
+		});
 	}
 
 	updateVars(object) {

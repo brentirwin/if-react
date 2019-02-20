@@ -150,6 +150,7 @@
 	"inventory": {
 		"pickaxe": {
 			"name": "Pickaxe",
+			"status": false,
 			"conditions": [
 				{
 					"room": "inside",
