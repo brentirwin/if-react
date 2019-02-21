@@ -5,7 +5,7 @@ export class Inventory extends Component {
 		let inv = this.props.inventory;
 		console.log(inv);
 		let arr = [];
-		const items = Object.keys(inv).map((key, index) => {
+		Object.keys(inv).map((key, index) => {
 			let item = inv[key];
 			let button = (
 				<li key={index}>

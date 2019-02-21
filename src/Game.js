@@ -66,7 +66,7 @@ export class Game extends Component {
 
 		// Inventory
 		const inv = JSON.parse(JSON.stringify(this.props.game.inventory));
-
+		variables.inventory = inv;
 		this.setState({
 			variables: variables,
 			inventory: inv
@@ -87,7 +87,6 @@ export class Game extends Component {
 				game={game}
 				variables={this.state.variables}
 				updateVars={this.updateVars}
-				inventory={this.state.inventory}
 				resetGame={this.initVars}
 				startRoom={this.state.startRoom}
 			/>

@@ -23,7 +23,7 @@ export class Room extends Component {
 	) : "";
 
 	const inventory = this.props.firstRoom ? "" : (
-		<Inventory inventory={this.props.inventory} />
+		<Inventory inventory={this.props.variables.inventory} />
 	);
 
 
