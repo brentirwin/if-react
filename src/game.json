@@ -48,6 +48,15 @@
 		"outside": {
 			"name": "Outside",
 			"description": ["You are outside. ", "$is_your_dad", " Yes, you are."],
+			"soft_links": [
+				{
+					"text": "Get pickaxe",
+					"action": "You got the pickaxe",
+					"updates": {
+						"true": ["inventory.pickaxe"]
+					}
+				}
+			],
 			"links": [
 				{
 					"text": "Go inside.",
