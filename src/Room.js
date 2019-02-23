@@ -18,16 +18,21 @@ export class Room extends Component {
       ""
     );
 
-	const startGame = this.props.firstRoom ? (
-		<button onClick={() => this.props.linksClick(this.props.startRoom)}>Start game</button> 
-	) : "";
+    const startGame = this.props.firstRoom ? (
+      <button onClick={() => this.props.linksClick(this.props.startRoom)}>
+        Start game
+      </button>
+    ) : (
+      ""
+    );
 
-	const inventory = this.props.firstRoom ? "" : (
-		<Inventory inventory={this.props.variables.inventory} />
-	);
+    const inventory = this.props.firstRoom ? (
+      ""
+    ) : (
+      <Inventory inventory={this.props.variables.inventory} />
+    );
 
-
-	  console.log(this.props.inventory);
+    console.log(this.props.inventory);
     return (
       <div className="room">
         <h1 className="room-name">{this.props.room.name}</h1>
@@ -47,9 +52,9 @@ export class Room extends Component {
           handleClick={this.props.linksClick}
           variables={this.props.variables}
         />
-        	{inventory}
-	    {gameover}
-		{startGame}
+        {inventory}
+        {gameover}
+        {startGame}
       </div>
     );
   }

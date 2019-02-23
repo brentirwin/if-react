@@ -9,13 +9,11 @@ export class Inventory extends Component {
 			let item = inv[key];
 			let button = (
 				<li key={index}>
-					<button>
-						{item.name}
-					</button>
+					<button>{item.name}</button>
 				</li>
 			);
 			if (item.status) arr.push(button);
 		});
-		return <ul>{arr}</ul>
+		return <ul>{arr}</ul>;
 	}
 }

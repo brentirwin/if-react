@@ -20,12 +20,17 @@ export class Links extends Component {
       if (link.hasOwnProperty("updates")) {
         const changes = link.updates;
         if (changes.hasOwnProperty("true"))
-          for (let i in changes.true) bools[changes.true[i]] = true;
+          for (let i in changes.true) {
+            bools[changes.true[i]] = true;
+          }
         if (changes.hasOwnProperty("false"))
-          for (let i in changes.false) bools[changes.false[i]] = false;
+          for (let i in changes.false) {
+            bools[changes.false[i]] = false;
+          }
         if (changes.hasOwnProperty("toggle"))
-          for (let i in changes.toggle)
+          for (let i in changes.toggle) {
             bools[changes.toggle[i]] = !variables[changes.toggle[i]];
+          }
       }
 
       // Is it a game over?

@@ -75,7 +75,7 @@ export class RoomController extends Component {
     const roomLocation = this.state.gameover ? game.rooms.gameover : game.rooms;
     let currentRoom = {};
     this.createRoom(roomLocation[this.state.room], currentRoom);
-	const firstRoom = this.state.room === "home" ? true : false;
+    const firstRoom = this.state.room === "home" ? true : false;
 
     return (
       <Room
@@ -89,8 +89,8 @@ export class RoomController extends Component {
         linksClick={this.followLink}
         resetGame={this.resetGame}
         gameover={this.state.gameover}
-		firstRoom={firstRoom}
-		startRoom={this.props.startRoom}
+        firstRoom={firstRoom}
+        startRoom={this.props.startRoom}
       />
     );
   }
