@@ -79,6 +79,14 @@ export class Game extends Component {
 		this.setState({ variables: copy });
 	}
 
+	updateInv(object) {
+		let invCopy = JSON.parse(JSON.stringify(this.state.variables.inventory));
+		for (let i in object) invCopy[i] = object[i];
+		let varsCopy = JSON.parse(JSON.stringify(this.state.variables));
+		varsCopy.inventory = invCopy;
+		this.setState({ variables: varsCopy });
+	}
+
 	render() {
 		const game = this.props.game;
 		console.log(this.state.firstRoom);
