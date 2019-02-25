@@ -19,6 +19,7 @@ export class Game extends Component {
 
 		this.updateVars = this.updateVars.bind(this);
 		this.initVars = this.initVars.bind(this);
+		this.updateInv = this.updateInv.bind(this);
 	}
 
 	componentDidMount = () => this.initVars();
@@ -95,6 +96,7 @@ export class Game extends Component {
 				game={game}
 				variables={this.state.variables}
 				updateVars={this.updateVars}
+				updateInv={this.updateInv}
 				resetGame={this.initVars}
 				startRoom={this.state.startRoom}
 			/>
