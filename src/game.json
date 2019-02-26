@@ -119,13 +119,6 @@
 					"updates": {
 						"false": ["bool1", "bool2"]
 					}
-				},
-				{
-					"text": "Toggle bool1 and bool2",
-					"action": "",
-					"updates": {
-						"toggle": ["bool1", "bool2"]
-					}
 				}
 			],
 			"conditions": [
