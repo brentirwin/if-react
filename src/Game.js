@@ -74,18 +74,26 @@ export class Game extends Component {
 		});
 	}
 
-	updateVars(object) {
+	updateInv(object) {
 		let copy = JSON.parse(JSON.stringify(this.state.variables));
 		for (let i in object) copy[i] = object[i];
 		this.setState({ variables: copy });
 	}
 
-	updateInv(object) {
-		let invCopy = JSON.parse(JSON.stringify(this.state.variables.inventory));
-		for (let i in object) invCopy[i] = object[i];
-		let varsCopy = JSON.parse(JSON.stringify(this.state.variables));
-		varsCopy.inventory = invCopy;
-		this.setState({ variables: varsCopy });
+	updateVars(object) {
+
+		const updateObject = (old, obj) => {
+			let copy = JSON.parse(JSON.stringify(old));
+			for (let i in obj) {
+				if (typeof obj[i] === "object")
+					copy[i] = updateObject(copy[i], obj[i]);
+					else copy[i] = obj[i];
+			}
+			return copy;
+		};
+
+		const copy = updateObject(this.state.variables, object);
+		this.setState({ variables: copy });
 	}
 
 	render() {
