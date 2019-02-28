@@ -5,7 +5,6 @@ export class Links extends Component {
     let currentLinks = this.props.links;
     var handleClick = this.props.handleClick;
     let hiddenLinks = this.props.hidden;
-//    let variables = this.props.variables;
 
     if (!currentLinks) return null;
 
@@ -36,22 +35,6 @@ export class Links extends Component {
 		return obj;
 	  }
 
-/*      if (link.hasOwnProperty("updates")) {
-        const changes = link.updates;
-        if (changes.hasOwnProperty("true"))
-          for (let i in changes.true) {
-            bools[changes.true[i]] = true;
-          }
-        if (changes.hasOwnProperty("false"))
-          for (let i in changes.false) {
-            bools[changes.false[i]] = false;
-          }
-        if (changes.hasOwnProperty("toggle"))
-          for (let i in changes.toggle) {
-            bools[changes.toggle[i]] = !variables[changes.toggle[i]];
-          }
-      }
-*/
       // Is it a game over?
       const gameover = link.action.startsWith("gameover.") ? true : false;
       const destination = gameover ? link.action.substring(9) : link.action;

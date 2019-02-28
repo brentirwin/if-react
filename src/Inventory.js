@@ -12,7 +12,8 @@ export class Inventory extends Component {
 			let gameover = false;
 			let used = false;
 
-			for (let i in item.conditions) {
+		// Use conditions
+		for (let i in item.conditions) {
 				let condition = item.conditions[i];
 				if (condition.room === this.props.roomKey) {
 					console.log(condition);
