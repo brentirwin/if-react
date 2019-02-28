@@ -21,7 +21,7 @@ export class RoomController extends Component {
     this.softLink = this.softLink.bind(this);
     this.createRoom = this.createRoom.bind(this);
     this.resetGame = this.resetGame.bind(this);
-	this.invLink = this.invLink.bind(this);
+  	this.invLink = this.invLink.bind(this);
   }
 
   // Allows <Links /> to update state of <App />
@@ -45,7 +45,6 @@ export class RoomController extends Component {
   }
 
   invLink(text, item, gameover, destination, used) {
-  	console.log(text, item, gameover, destination);
 	  this.setState({
 		  extraText: [...this.state.extraText, text],
 		  gameover: gameover
