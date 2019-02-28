@@ -98,7 +98,6 @@ export class Game extends Component {
 
 	render() {
 		const game = this.props.game;
-		console.log(this.state.firstRoom);
 		return (
 			<RoomController
 				game={game}

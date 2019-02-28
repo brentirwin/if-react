@@ -5,7 +5,7 @@ export class Links extends Component {
     let currentLinks = this.props.links;
     var handleClick = this.props.handleClick;
     let hiddenLinks = this.props.hidden;
-    let variables = this.props.variables;
+//    let variables = this.props.variables;
 
     if (!currentLinks) return null;
 
@@ -35,7 +35,6 @@ export class Links extends Component {
 		}
 		return obj;
 	  }
-	  console.log(bools);
 
 /*      if (link.hasOwnProperty("updates")) {
         const changes = link.updates;

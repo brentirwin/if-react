@@ -21,6 +21,7 @@ export class RoomController extends Component {
     this.softLink = this.softLink.bind(this);
     this.createRoom = this.createRoom.bind(this);
     this.resetGame = this.resetGame.bind(this);
+	this.invLink = this.invLink.bind(this);
   }
 
   // Allows <Links /> to update state of <App />
@@ -41,6 +42,19 @@ export class RoomController extends Component {
       gameover: gameover
     });
     this.props.updateVars(bools);
+  }
+
+  invLink(text, item, gameover, destination, used) {
+	console.log(text, item, gameover, destination);
+	this.setState({
+		extraText: [...this.state.extraText, text],
+		gameover: gameover
+	});
+	if (destination !== '') this.setState({ 
+		room: destination,
+		extraText: []
+	});
+	if (used) this.props.updateVars({ 'inventory': {[item]: false} });
   }
 
   createRoom(room, output) {
@@ -87,6 +101,8 @@ export class RoomController extends Component {
         hidden={this.state.hiddenSoftLinks}
         links={currentRoom.links}
         linksClick={this.followLink}
+		invClick={this.invLink}
+		roomKey={this.state.room}
         resetGame={this.resetGame}
         gameover={this.state.gameover}
         firstRoom={firstRoom}

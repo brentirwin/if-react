@@ -160,7 +160,8 @@
 				},
 				{
 					"room": "outside",
-					"destination": "gameover.room1"
+					"destination": "gameover.room1",
+					"used": true
 				}
 			],
 			"default": "Ain't nothing to pick here."

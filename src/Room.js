@@ -29,10 +29,13 @@ export class Room extends Component {
     const inventory = this.props.firstRoom ? (
       ""
     ) : (
-      <Inventory inventory={this.props.variables.inventory} />
+      <Inventory
+	  	inventory={this.props.variables.inventory}
+		handleClick={this.props.invClick}
+		roomKey={this.props.roomKey}
+	  />
     );
 
-    console.log(this.props.inventory);
     return (
       <div className="room">
         <h1 className="room-name">{this.props.room.name}</h1>

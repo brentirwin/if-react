@@ -2,18 +2,40 @@ import React, { Component } from "react";
 
 export class Inventory extends Component {
 	render() {
+		const handleClick = this.props.handleClick;
+
 		let inv = this.props.inventory;
-		console.log(inv);
 		let arr = Object.keys(inv).map((key, index) => {
 			let item = inv[key];
-			console.log(key, item, item.status);
+			let text = item.default;
+			let destination = '';
+			let gameover = false;
+			let used = false;
+
+			for (let i in item.conditions) {
+				let condition = item.conditions[i];
+				if (condition.room === this.props.roomKey) {
+					console.log(condition);
+					text = '';
+					used = condition.used;
+					destination = condition.destination;
+					if (destination.startsWith('gameover.')) {
+						destination = destination.substring(9);
+						gameover = true;
+					}
+					break;
+				}
+			}
+
 			if (item.status) {
 				return (
 				<li key={index}>
-					<button>{key}</button>
+					<button
+						onClick={() => handleClick(text, key, gameover, destination, used)}>
+						{item.name}
+					</button>
 				</li>
 			)} else return null;
-			//if (item.status) arr.push(button);
 		});
 		return <ul>{arr}</ul>;
 	}
