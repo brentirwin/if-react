@@ -6,11 +6,11 @@ export class Inventory extends Component {
 		console.log(inv);
 		let arr = Object.keys(inv).map((key, index) => {
 			let item = inv[key];
-			console.log(item);
+			console.log(key, item, item.status);
 			if (item.status) {
 				return (
 				<li key={index}>
-					<button>{item.name}</button>
+					<button>{key}</button>
 				</li>
 			)} else return null;
 			//if (item.status) arr.push(button);
