@@ -45,16 +45,16 @@ export class RoomController extends Component {
   }
 
   invLink(text, item, gameover, destination, used) {
-	console.log(text, item, gameover, destination);
-	this.setState({
-		extraText: [...this.state.extraText, text],
-		gameover: gameover
-	});
-	if (destination !== '') this.setState({ 
-		room: destination,
-		extraText: []
-	});
-	if (used) this.props.updateVars({ 'inventory': {[item]: false} });
+  	console.log(text, item, gameover, destination);
+	  this.setState({
+		  extraText: [...this.state.extraText, text],
+		  gameover: gameover
+	  });
+    if (destination !== '') this.setState({ 
+      room: destination,
+      extraText: []
+    });
+    if (used) this.props.updateVars({ 'inventory': {[item]: false} });
   }
 
   createRoom(room, output) {
