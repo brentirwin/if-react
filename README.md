@@ -222,6 +222,7 @@ Similarly, a destination room may be written as `gameover.roomName` to take you 
 		"description": "bool1 is false"
 	}
 ]
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
