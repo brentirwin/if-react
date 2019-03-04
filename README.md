@@ -1,4 +1,4 @@
-This project is a React engine for playing interactive fiction games made with JSON files.
+This project is a game engine written in React.js for playing interactive fiction games made with JSON files. I had a class project a while back to make a text adventure game in C++. I was very proud of it, but it wasn't very easy to share with my friends and family. I created this engine with that very game in mind so that I could send everyone to a simple website to play it. The first version of this engine is purpose-built with the features that I needed in that game.
 
 ## Creating a game
 
