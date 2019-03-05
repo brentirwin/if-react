@@ -75,13 +75,13 @@
 					"true": "has_been_inside",
 					"description": "You return to the vaulted, gothic foyer. The exit door is sealed shut. You see a tall grandfather clock. To the west is a staircase. To the north and to the east are two closed doors."
 				}
-			]
+			],
 			"soft_links": [
 				{
 					"text": "Look at the clock.",
 					"action": "The clock seems to be watching you. It dongs knowingly as you approach."
 				}
-			]
+			],
 			"links": [
 				{
 					"text": "Take the door to the north.",
