@@ -6,7 +6,7 @@
 				"value": false
 			},
 			{
-				"name": "takenGarlic",
+				"name": "has_taken_garlic",
 				"value": false
 			},
 			{
@@ -15,6 +15,18 @@
 			},
 			{
 				"name": "has_visited_nursery",
+				"value": false
+			},
+			{
+				"name": "has_inspected_books",
+				"value": false
+			},
+			{
+				"name": "has_taken_sword",
+				"value": false
+			},
+			{
+				"name": "has_inspected_skeletons",
 				"value": false
 			}
 		],
@@ -30,6 +42,10 @@
 			{
 				"name": "qName",
 				"value": ["Mavis", "Merle", "Shirley", "Edward"]
+			},
+			{
+				"name": "qYear",
+				"value": ["1750", "1723", "1801", "1783"]
 			}
 		]
 	},
@@ -44,6 +60,17 @@
 				}
 			],
 			"default": "Rotten garlic is very stinky. One whiff makes you cry."
+		},
+		"sword": {
+			"status": false,
+			"conditions": [
+				{
+					"room": "nursery",
+					"true": ["ghoul_is_alive"],
+					"destination": "gameover.sword"
+				}
+			],
+			"default": "You feel super cool holding this sword."
 		}
 	},
 	"rooms": {
@@ -104,23 +131,23 @@
 			"soft_links": [
 				{
 					"text": "Look at the painting.",
-					"action": "The painting, 7 feet across, depicts a man, woman, and baby. The man is holding the baby. The woman wears a ", "$qDress", "dress and looks displeased."
+					"action": ["The painting, 7 feet across, depicts a man, woman, and baby. The man is holding the baby. The woman wears a ", "$qDress", "dress and looks displeased."]
 				},
 				{
 					"text": "Look at the table.",
 					"action": "On the table you find and old, rotted bulb of garlic. You take it with you.",
 					"updates": { "true": [
 									"inventory.garlic",
-									"takenGarlic"]}
+									"has_taken_garlic"]}
 				}
 			],
 			"conditions": [
 				{
-					"true": "takenGarlic",
+					"true": "has_taken_garlic",
 					"soft_links": [
 						{
 							"text": "Look at the painting.",
-							"action": "The painting, 7 feet across, depicts a man, woman, and baby. The man is holding the baby. The woman wears a ", "$qDress", "dress and looks displeased."
+							"action": ["The painting, 7 feet across, depicts a man, woman, and baby. The man is holding the baby. The woman wears a ", "$qDress", "dress and looks displeased."]
 						},
 						{
 							"text": "Look at the table.",
@@ -235,12 +262,161 @@
 						}
 					]
 				}
+			]
+		},
+		"library": {
+			"description": "You enter an old library. The walls are covered with bookshelves reaching the 12-foot ceilings. A desk sits in the center.",
+			"soft_links": [
+				{
+					"name": "Inspect the desk.",
+					"action": ["On the desk you see a sheet of paper titled \"SACRIFICES, ", "$qYear", "\". A list of names runs down the page next to dates hundreds of years old."]
+				}
 			],
+			"links": [
+				{
+					"name": "Return to the landing.",
+					"action": "landing"
+				},
+				{
+					"name": "Go through the secret door.",
+					"action": "secret_room"
+				}
+			],
+			"conditions": [
+				{
+					"false": "has_inspected_books",
+					"links": [
+						{
+							"name": "Inspect the bookshelves.",
+							"action": "library_just_inspected",
+							"updates": { "true": ["has_inspected_books"] }
+						},
+						{
+							"name": "Return to the landing.",
+							"action": "landing"
+						}
+					]
+				}
+			]
+		},
+		"library_just_inspected": {
+			"description": "You enter an old library. The walls are covered with bookshelves reaching the 12-foot ceilings. A desk sits in the center.\nAs you search through the books, one stands out. Nearly 6 inches thick, it is titled \"Magick and Grimories\". When you pull it out, a secret door opens to the east.",
+			"soft_links": [
+				{
+					"name": "Inspect the desk.",
+					"action": ["On the desk you see a sheet of paper titled \"SACRIFICES, ", "$qYear", "\". A list of names runs down the page next to dates hundreds of years old."]
+				}
+			],
+			"links": [
+				{
+					"name": "Return to the landing.",
+					"action": "landing"
+				},
+				{
+					"name": "Go through the secret door.",
+					"action": "secret_room"
+				}
+			]
+		},
+		"secret_room": {
+			"description": "You pull back the bookcase and walk into the small secret room. Inside lies an empty chest.",
+			"links": [
+				{
+					"name": "Return to the library.",
+					"action": "library"
+				}
+			],
+			"conditions": [
+				{
+					"false": "has_taken_sword",
+					"description": "You pull back the bookcase and walk into the small secret room. Inside lies a chest.",
+					"soft_links": [
+						{
+							"name": "Open the chest.",
+							"action": "You open the chest. Inside you find a sword. You take it with you.",
+							"updates": { "true": ["has_taken_sword",
+											"inventory.sword"] }
+						}
+					]
+				}
+			]
+		},
+		"attic": {
+			"description": "You enter an old unfinished attic. The floorboards creak, and a small trickle of water falls from a spot in the roof. With improper insulation, this attic is colder than the rest of the house. You see rain fall in the darkness beyond the cast iron bars on the windows. A dollhouse sits on the floor. On the bed are two small skeletons, dressed just like the children you met outside.",
+			"soft_links": [
+				{
+					"name": "Inspect the dollhouse.",
+					"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
+				}
+			],
+			"links": [
+				{
+					"name": "Inspect the skeletons.",
+					"action": "attic_just_discovered_chimney",
+					"updates": { "true": ["has_inspected_skeletons"] }
+				},
+				{
+					"name": "Go back downstairs.",
+					"action": "landing"
+				}
+			],
+			"conditions": [
+				{
+					"true": "has_inspected_skeletons",
+					"soft_links": [
+						{
+							"name": "Inspect the dollhouse.",
+							"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
+						},
+						{
+							"name": "Inspect the skeletons.",
+							"action": "You see the long-decayed skeletons of the children you just met. Is their fate already sealed?"
+						}
+					],
+					"links": [
+						{
+							"name": "Take the secret cute to the cellar.",
+							"action": "cellar"
+						},
+						{
+							"name": "Go back downstairs.",
+							"action": "landing"
+						}
+					]
+				}
+			]
+		},
+		"attic_just_discovered_chimney": {
+			"description": "You enter an old unfinished attic. The floorboards creak, and a small trickle of water falls from a spot in the roof. With improper insulation, this attic is colder than the rest of the house. You see rain fall in the darkness beyond the cast iron bars on the windows. A dollhouse sits on the floor. On the bed are two small skeletons, dressed just like the children you met outside.\nLeaning over the skeletons, you find that they are indeed wearing the same clothes as the children you met outside. They are the same sizes, too.\n\"You found us.\" You hear a voice from behind. You turn around to see the ghosts of Rose and Thorn.\nRose begins to speak. \"Our parents sometimes lock us in our room to protect us from the monster. They say they have to keep it in the basement so that it won't escape and eat us. One day they locked us up here, and they never let us out. We heard the screams coming from the cellar every day, but we were left in here to starve. You have to slay the monster to free our souls from this curse, so that we may move on.\"\nThorn walks over to the dollhouse and speaks for the first time. \"The fireplace in here conceals a secret path to the cellar. Please go down and save us.\" He reveals in the dollhouse that the chimneyway running the entire height of the house is indeed a narrow staircase. As he does so, the fireplace in the room slides open and reveals a dark passage downward.\nWith this, the children disappear before your eyes.",
+			"soft_links": [
+				{
+					"name": "Inspect the dollhouse.",
+					"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
+				},
+				{
+					"name": "Inspect the skeletons.",
+					"action": "You see the long-decayed skeletons of the children you just met. Is their fate already sealed?"
+				}
+			],
+			"links": [
+				{
+					"name": "Take the secret cute to the cellar.",
+					"action": "cellar"
+				},
+				{
+					"name": "Go back downstairs.",
+					"action": "landing"
+				}
+			]
 		},
 		"gameover": {
 			"nursery": {
 				"name": "GAME OVER",
 				"description": "You thought you could outrun her twice? Think again. Or don't, because you're dead.\nThe ghoul grabs you by the throat. You feel her icy cold fingers sqeezing tight. You smell rotting flesh and struggle for breath as the nursemaid opens her mouth and chews into your face."
+			},
+			"sword": {
+				"name": "GAME OVER",
+				"description": "You attempt to stab the ghoul with the sword, but it passes through it. You lean forward into the hideous creature. It grabs the sword itself and stabs you in the stomach. You fall on the ground bleeding as the nursemaid eats away your flesh."
 			}
 		}
 	}
