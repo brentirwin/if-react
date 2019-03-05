@@ -69,7 +69,7 @@
 			]
 		},
 		"foyer": {
-			"description": "You pass through the wrought iron gate and stare up at the tall house leaning over you. The door is already open. You walk inside and the heavy door slams behidn you. You try to get back out, but it is locked. You are trapped. Inside you see a tall grandfather clock. It chimes eleven times. To the west is a staircase. To the north and to the east are two closed doors."
+			"description": "You pass through the wrought iron gate and stare up at the tall house leaning over you. The door is already open. You walk inside and the heavy door slams behidn you. You try to get back out, but it is locked. You are trapped. Inside you see a tall grandfather clock. It chimes eleven times. To the west is a staircase. To the north and to the east are two closed doors.",
 			"conditions": [
 				{
 					"true": "has_been_inside",
@@ -108,7 +108,7 @@
 				},
 				{
 					"text": "Look at the table.",
-					"action": "On the table you find and old, rotted bulb of garlic. You take it with you."
+					"action": "On the table you find and old, rotted bulb of garlic. You take it with you.",
 					"updates": { "true": [
 									"inventory.garlic",
 									"takenGarlic"]}
@@ -179,7 +179,7 @@
 			]
 		},
 		"nursery_murder": {
-			"description": "You pull out the garlic and throw it at the ghoul. It releases a blood-curtling scream as the garlic burns through its ectoplasmic face. It dissintegrates into steam that dissipates into the air."
+			"description": "You pull out the garlic and throw it at the ghoul. It releases a blood-curtling scream as the garlic burns through its ectoplasmic face. It dissintegrates into steam that dissipates into the air.",
 			"soft_links": [
 				{
 					"name": "Inspect the crib.",
@@ -193,7 +193,7 @@
 					"updates": { "false": ["ghoul_is_alive"] }
 				}
 			]
-		}
+		},
 		"nursery": {
 			"description": "As you open the door, the baby's screams stop. You approach the crib inside where you see a small, swaddled mass. As you bend over to look inside, you feel a presence. There before you is a ghastly nursemaid, semitransparent and rotting to pieces.",
 			"conditions": [
@@ -209,7 +209,7 @@
 					"conditions": [
 						{
 							"true": "has_visited_nursery",
-							"description": "The floating ghoul is still there. She reaches out for you."
+							"description": "The floating ghoul is still there. She reaches out for you.",
 							"links": [
 								{
 									"text": "RUUUUUUUUUUN!",
