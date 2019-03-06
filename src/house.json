@@ -47,6 +47,12 @@
 				"name": "qYear",
 				"value": ["1750", "1723", "1801", "1783"]
 			}
+		],
+		"permutation": [
+			{
+				"names": ["q1", "q2"],
+				"values": ["dress", "wood", "name", "year"]
+			}
 		]
 	},
 	"inventory": {
@@ -68,6 +74,10 @@
 					"room": "nursery",
 					"true": ["ghoul_is_alive"],
 					"destination": "gameover.sword"
+				},
+				{
+					"room": "dungeon",
+					"destination": "gameover.victory"
 				}
 			],
 			"default": "You feel super cool holding this sword."
@@ -375,7 +385,7 @@
 					],
 					"links": [
 						{
-							"name": "Take the secret cute to the cellar.",
+							"name": "Take the secret chute to the cellar.",
 							"action": "cellar"
 						},
 						{
@@ -400,7 +410,7 @@
 			],
 			"links": [
 				{
-					"name": "Take the secret cute to the cellar.",
+					"name": "Take the secret chute to the cellar.",
 					"action": "cellar"
 				},
 				{
@@ -409,14 +419,809 @@
 				}
 			]
 		},
+		"cellar": {
+			"description": "The cellar is made completely of dank, moldy flagstone. A door is on the south side of the room.",
+			"links": [
+				{
+					"name": "Head south.",
+					"action": "trials"
+				},
+				{
+					"name": "Go back up the narrow stairs.",
+					"action": "attic"
+				}
+			]
+		},
+		"trials": {
+			"description": "As you approad the south door, you hear a deadly cackle. A fiendish apparition swoops down before you, blocking the way. \"So you wish to pass?\" it asks. \"I represent the souls of all those sacrificed by the owners of this house. If you think you have what it takes to face the monster inside, you must first prove your worth. If you cannot pass my trial,\" it chuckles, \" then too bad for you. Are you ready to begin? Once you start, there is no turning back.\"",
+			"links": [
+				{
+					"name": "Yes.",
+					"action": "question1"
+				},
+				{
+					"name": "No. Return upstairs.",
+					"action": "attic"
+				}
+			]
+		},
+		"question1": {
+			"conditions": [
+				{
+					"equals": ["q1", "dress"],
+					"description": "\"Let the quiz begin!\" the ghoul cackles.\nWhat color dress does the lady of the house wear?",
+					"conditions": [
+						{
+							"equals": ["qDress", "mauve"],
+							"links": [
+								{
+									"name": "mauve",
+									"action": "question2"
+								},
+								{
+									"name": "rose",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "scarlet",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "charcoal",
+									"action": "gameover.dress"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "rose"],
+							"links": [
+								{
+									"name": "mauve",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "rose",
+									"action": "question2"
+								},
+								{
+									"name": "scarlet",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "charcoal",
+									"action": "gameover.dress"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "scarlet"],
+							"links": [
+								{
+									"name": "mauve",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "rose",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "scarlet",
+									"action": "question2"
+								},
+								{
+									"name": "charcoal",
+									"action": "gameover.dress"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "charcoal"],
+							"links": [
+								{
+									"name": "mauve",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "rose",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "scarlet",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "charcoal",
+									"action": "question2"
+								}
+							]
+						}
+					]
+				},
+				{
+					"equals": ["q1", "wood"],
+					"description": "\"Let the quiz begin!\" the ghoul cackles.\nThe master bedframe is made of what type of wood?",
+					"conditions": [
+						{
+							"equals": ["qDress", "oak"],
+							"links": [
+								{
+									"name": "oak",
+									"action": "question2"
+								},
+								{
+									"name": "ash",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ebony",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "mahogany",
+									"action": "gameover.wood"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "ash"],
+							"links": [
+								{
+									"name": "oak",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ash",
+									"action": "question2"
+								},
+								{
+									"name": "ebony",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "mahogany",
+									"action": "gameover.wood"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "ebony"],
+							"links": [
+								{
+									"name": "oak",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ash",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ebony",
+									"action": "question2"
+								},
+								{
+									"name": "mahogany",
+									"action": "gameover.wood"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "mahogany"],
+							"links": [
+								{
+									"name": "oak",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ash",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ebony",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "mahogany",
+									"action": "question2"
+								}
+							]
+						}
+					]
+				},
+				{
+					"equals": ["q1", "name"],
+					"description": "\"Let the quiz begin!\" the ghoul cackles.\nWhat is the baby's name?",
+					"conditions": [
+						{
+							"equals": ["qDress", "Mavis"],
+							"links": [
+								{
+									"name": "Mavis",
+									"action": "question2"
+								},
+								{
+									"name": "Merle",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Shirley",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Edward",
+									"action": "gameover.name"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "Merle"],
+							"links": [
+								{
+									"name": "Mavis",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Merle",
+									"action": "question2"
+								},
+								{
+									"name": "Shirley",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Edward",
+									"action": "gameover.name"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "Shirley"],
+							"links": [
+								{
+									"name": "Mavis",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Merle",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Shirley",
+									"action": "question2"
+								},
+								{
+									"name": "Edward",
+									"action": "gameover.name"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "Edward"],
+							"links": [
+								{
+									"name": "Mavis",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Merle",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Shirley",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Edward",
+									"action": "question2"
+								}
+							]
+						}
+					]
+
+				},
+				{
+					"equals": ["q1", "year"],
+					"description": "\"Let the quiz begin!\" the ghoul cackles.\nIn what year were the last sacrifices made?",
+					"conditions": [
+						{
+							"equals": ["qDress", "1750"],
+							"links": [
+								{
+									"name": "1750",
+									"action": "question2"
+								},
+								{
+									"name": "1723",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1801",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1783",
+									"action": "gameover.year"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "1723"],
+							"links": [
+								{
+									"name": "1750",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1723",
+									"action": "question2"
+								},
+								{
+									"name": "1801",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1783",
+									"action": "gameover.year"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "1801"],
+							"links": [
+								{
+									"name": "1750",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1723",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1801",
+									"action": "question2"
+								},
+								{
+									"name": "1738",
+									"action": "gameover.year"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "1783"],
+							"links": [
+								{
+									"name": "1750",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1723",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1801",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1783",
+									"action": "question2"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"question2": {
+			"conditions": [
+				{
+					"equals": ["q2", "dress"],
+					"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes.\nWhat color dress does the lady of the house wear?",
+					"conditions": [
+						{
+							"equals": ["qDress", "mauve"],
+							"links": [
+								{
+									"name": "mauve",
+									"action": "dungeon"
+								},
+								{
+									"name": "rose",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "scarlet",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "charcoal",
+									"action": "gameover.dress"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "rose"],
+							"links": [
+								{
+									"name": "mauve",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "rose",
+									"action": "dungeon"
+								},
+								{
+									"name": "scarlet",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "charcoal",
+									"action": "gameover.dress"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "scarlet"],
+							"links": [
+								{
+									"name": "mauve",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "rose",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "scarlet",
+									"action": "dungeon"
+								},
+								{
+									"name": "charcoal",
+									"action": "gameover.dress"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "charcoal"],
+							"links": [
+								{
+									"name": "mauve",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "rose",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "scarlet",
+									"action": "gameover.dress"
+								},
+								{
+									"name": "charcoal",
+									"action": "dungeon"
+								}
+							]
+						}
+					]
+				},
+				{
+					"equals": ["q1", "wood"],
+					"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes.\nThe master bedframe is made of what type of wood?",
+					"conditions": [
+						{
+							"equals": ["qDress", "oak"],
+							"links": [
+								{
+									"name": "oak",
+									"action": "dungeon"
+								},
+								{
+									"name": "ash",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ebony",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "mahogany",
+									"action": "gameover.wood"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "ash"],
+							"links": [
+								{
+									"name": "oak",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ash",
+									"action": "dungeon"
+								},
+								{
+									"name": "ebony",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "mahogany",
+									"action": "gameover.wood"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "ebony"],
+							"links": [
+								{
+									"name": "oak",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ash",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ebony",
+									"action": "dungeon"
+								},
+								{
+									"name": "mahogany",
+									"action": "gameover.wood"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "mahogany"],
+							"links": [
+								{
+									"name": "oak",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ash",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "ebony",
+									"action": "gameover.wood"
+								},
+								{
+									"name": "mahogany",
+									"action": "dungeon"
+								}
+							]
+						}
+					]
+				},
+				{
+					"equals": ["q1", "name"],
+					"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes.\nWhat is the baby's name?",
+					"conditions": [
+						{
+							"equals": ["qDress", "Mavis"],
+							"links": [
+								{
+									"name": "Mavis",
+									"action": "dungeon"
+								},
+								{
+									"name": "Merle",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Shirley",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Edward",
+									"action": "gameover.name"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "Merle"],
+							"links": [
+								{
+									"name": "Mavis",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Merle",
+									"action": "dungeon"
+								},
+								{
+									"name": "Shirley",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Edward",
+									"action": "gameover.name"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "Shirley"],
+							"links": [
+								{
+									"name": "Mavis",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Merle",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Shirley",
+									"action": "dungeon"
+								},
+								{
+									"name": "Edward",
+									"action": "gameover.name"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "Edward"],
+							"links": [
+								{
+									"name": "Mavis",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Merle",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Shirley",
+									"action": "gameover.name"
+								},
+								{
+									"name": "Edward",
+									"action": "dungeon"
+								}
+							]
+						}
+					]
+
+				},
+				{
+					"equals": ["q1", "year"],
+					"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes.\nIn what year were the last sacrifices made?",
+					"conditions": [
+						{
+							"equals": ["qDress", "1750"],
+							"links": [
+								{
+									"name": "1750",
+									"action": "dungeon"
+								},
+								{
+									"name": "1723",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1801",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1783",
+									"action": "gameover.year"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "1723"],
+							"links": [
+								{
+									"name": "1750",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1723",
+									"action": "dungeon"
+								},
+								{
+									"name": "1801",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1783",
+									"action": "gameover.year"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "1801"],
+							"links": [
+								{
+									"name": "1750",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1723",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1801",
+									"action": "dungeon"
+								},
+								{
+									"name": "1738",
+									"action": "gameover.year"
+								}
+							]
+						},
+						{
+							"equals": ["qDress", "1783"],
+							"links": [
+								{
+									"name": "1750",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1723",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1801",
+									"action": "gameover.year"
+								},
+								{
+									"name": "1783",
+									"action": "dungeon"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"dungeon": {
+			"description": "As you cross through the doorway, a narrow path steeply leads you down into the belly of a huge cavern situated below the town. You hear drops of water echoing in the distance. In the middle of the massive floor sits a single barely-lit brazier in the darkness. You make your way to it with nowhere else to turn.\nYou stare into the flames and feel the heat against the cold dampness you've grown accustomed to. Behind you, you hear a creature smack its lips exactly once. You turn around to see a hideous meat monster, gross and deformed. Long and gangly like a lizard with arms, legs, and eyes of all different shapes and sizes protruding in every direction. At the top sits a large open hole with rows of shark-like teeth. This hold moves as the monster speaks to you. Its voice raises chills up your spine.\n\"For decades this family served me greatly. They found me poor and decrepit. I was on the brink of death. I promised them if they would feed me the joy in a human soul that I would grant them powers beyond their wildest dreams. Myrna loved this idea. She gladly drew in the town's visitors into her private 'wine cellar' so that I could devour their happiness and gain strength. I gave her the ability to control the minds of others. She coudl just as easily lure victims into my lair as she could influence the governors of the town or the barrons sitting on their piles of gold.\n\"However, Ronald seemed to have a weakness. He cared too much for the children. He pretended to go along with it, but I knew. I always know. He was planning to slay me in an attempt to protect his pathetic brats. So I gave Myrna a task. She was to use her powers to convince Ronald to feed himself to me. Her power was so great that it was no problem for her. But it turns out she was weak too. After all I had done for her, a part of her broke when she was I had eaten her lover. I saw this weakness, and I ate her as well.\n\"This was foolish on my part, for now I have not eaten in centuries. Don't worry, puny human. It won't be painful. But I will not hesitate. You will be mine. I am starving.",
+			"links": [
+				{
+					"name": "Run!",
+					"action": "gameover.run"
+				},
+				{
+					"name": "Scream!",
+					"action": "gameover.scream"
+				},
+				{
+					"name": "Hadouken! 波動拳",
+					"action": "gameover.hadouken"
+				}
+			]
+		},
 		"gameover": {
 			"nursery": {
-				"name": "GAME OVER",
-				"description": "You thought you could outrun her twice? Think again. Or don't, because you're dead.\nThe ghoul grabs you by the throat. You feel her icy cold fingers sqeezing tight. You smell rotting flesh and struggle for breath as the nursemaid opens her mouth and chews into your face."
+				"description": "You thought you could outrun her twice? Think again. Or don't, because you're dead.\nThe ghoul grabs you by the throat. You feel her icy cold fingers sqeezing tight. You smell rotting flesh and struggle for breath as the nursemaid opens her mouth and chews into your face.\nGAME OVER"
 			},
 			"sword": {
-				"name": "GAME OVER",
-				"description": "You attempt to stab the ghoul with the sword, but it passes through it. You lean forward into the hideous creature. It grabs the sword itself and stabs you in the stomach. You fall on the ground bleeding as the nursemaid eats away your flesh."
+				"description": "You attempt to stab the ghoul with the sword, but it passes through it. You lean forward into the hideous creature. It grabs the sword itself and stabs you in the stomach. You fall on the ground bleeding as the nursemaid eats away your flesh.\nGAME OVER"
+			},
+			"wood": {
+				"description": ["\"Nope!\" it squeals. \"The wood is ", "$qWood", ".\nThe apparition stares you in the eyes. You are paralyzed. You try to move, but its gaze has you transfixed. You feel an evil cold rush through your body as it swoops inside you and takes over. You feel it twisting your neck from the inside until you fall dead to the cold stone floor.\nGAME OVER"]
+			},
+			"dress": {
+				"description": ["\"Not even close!\" it squeals. \"Her dress is ", "$qDress", ".\nThe apparition stares you in the eyes. You are paralyzed. You try to move, but its gaze has you transfixed. You feel an evil cold rush through your body as it swoops inside you and takes over. You feel it twisting your neck from the inside until you fall dead to the cold stone floor.\nGAME OVER"]
+			},
+			"name": {
+				"description": ["\"Tough luck,\" it squeals. \"The baby's name is ", "$qName", ".\nThe apparition stares you in the eyes. You are paralyzed. You try to move, but its gaze has you transfixed. You feel an evil cold rush through your body as it swoops inside you and takes over. You feel it twisting your neck from the inside until you fall dead to the cold stone floor.\nGAME OVER"]
+			},
+			"year": {
+				"description": ["\"WRONG!\" it squeals. \"The year was ", "$qYear", ".\nThe apparition stares you in the eyes. You are paralyzed. You try to move, but its gaze has you transfixed. You feel an evil cold rush through your body as it swoops inside you and takes over. You feel it twisting your neck from the inside until you fall dead to the cold stone floor.\nGAME OVER"]
+			},
+			"run": {
+				"description": "You run back to the door you came in. As you  viciously pull on the handle, the door does not move one bit. It seems to have been magically sealed shut. You claw at the door until the monster opens its gaping maw and swallows your head.\nGAME OVER"
+			},
+			"scream": {
+				"description": "You stand paralyzed in fear as the monster approaches you. It opens its gaping maw and swallows your head.\nGAME OVER"
+			},
+			"hadouken": {
+				"description": "You place your wrists together, palms facing the beast. You squeeze your eyes shut and focus all your energy. \"HADOUKEN!\" you scream. You open your eyes and realize nothing happened. The monster is right on top of you. It opens its gaping maw and swallows your head.\nGAME OVER"
+			},
+			"victory": {
+				"description": ["You pull the sword out, and it takes the beast by surprise. It tries to escape, but you use the blad to pierce the odd eyes and remove the grotesque appendages. You hack and slash as the monstrosity squeals in pain. You do not stop until you are absolutely certain that it has perished.\nAt this point, you see dozens or even hundreds of souls rise from the ground and head toward the heavens. Before you float the souls of Rose, Thorn, and baby ", "$qName", ". They smile at you graciously. Thorn runs forward to hug you, but he only passes through. His sister chuckles, and as they reunite, they ascend through the cavern ceiling with the rest of the spirits.\nYou win."]
 			}
 		}
 	}
