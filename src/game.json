@@ -70,11 +70,11 @@
 	"rooms": {
 		"quiz": {
 			"quiz1": {
-				"description": "\"Let the quiz begin!\" the ghoul cackles."
+				"description": "\"Let the quiz begin!\" the ghoul cackles.",
 				"success": "quiz.q2"
 			},
 			"quiz2": {
-				"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes."
+				"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes.",
 				"success": "gameover.victory"
 			}
 		},
