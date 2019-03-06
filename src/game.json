@@ -30,16 +30,54 @@
 			{
 				"name": "multiple_choice",
 				"value": [1, 2, 3, 4]
+			},
+			{
+				"name": "qA",
+				"value": ["choice 1", "choice 2", "choice 3", "choice 4"],
+				"question": "What is the answer to qA?",
+				"failure": "You don't know the answer to qA."
+			},
+			{
+				"name": "qB",
+				"value": ["choice 1", "choice 2", "choice 3", "choice 4"],
+				"question": "What is the answer to qB?",
+				"failure": "You don't know the answer to qB."
+			},
+			{
+				"name": "qC",
+				"value": ["choice 1", "choice 2", "choice 3", "choice 4"],
+				"question": "What is the answer to qC?",
+				"failure": "You don't know the answer to qC."
+			},
+			{
+				"name": "qD",
+				"value": ["choice 1", "choice 2", "choice 3", "choice 4"],
+				"question": "What is the answer to qD?",
+				"failure": "You don't know the answer to qD."
 			}
 		],
 		"permutation": [
 			{
 				"names": ["q1", "q2"],
 				"values": [1, 2, 3, 4]
+			},
+			{
+				"names": ["quiz1", "quiz2"],
+				"values": ["qA", "qB", "qC", "qD"]
 			}
 		]
 	},
 	"rooms": {
+		"quiz": {
+			"quiz1": {
+				"description": "\"Let the quiz begin!\" the ghoul cackles."
+				"success": "quiz.q2"
+			},
+			"quiz2": {
+				"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes."
+				"success": "gameover.victory"
+			}
+		},
 		"home": {
 			"name": "if-react",
 			"description": "This is the homepage.",
