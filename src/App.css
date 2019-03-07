@@ -16,8 +16,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #ddd;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .App-link {
@@ -72,6 +70,10 @@ ul {
   .App-header > * {
     max-width: 85%;
     margin: auto;
+  }
+  .App-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .App-header p {
     font-size: calc(10px + 1.5vmin);
