@@ -95,6 +95,12 @@
 					}
 				}
 			],
+      "conditions": [
+        {
+          "equals": ["multiple_choice", 1],
+          "description": "multiple_choice === 1"
+        }
+      ],
 			"links": [
 				{
 					"text": "Go inside.",

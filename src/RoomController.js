@@ -58,7 +58,7 @@ export class RoomController extends Component {
 
   createRoom(room, output) {
     for (let i in room) {
-      if (i === "conditions" || i === "true" || i === "false") continue;
+      if (i === "conditions" || i === "true" || i === "false" || i === "equals") continue;
       output[i] = room[i];
     }
     if (room.hasOwnProperty("conditions")) {
@@ -68,7 +68,9 @@ export class RoomController extends Component {
           (condition.hasOwnProperty("true") &&
             this.props.variables[condition.true]) ||
           (condition.hasOwnProperty("false") &&
-            !this.props.variables[condition.false])
+            !this.props.variables[condition.false]) ||
+          (condition.hasOwnProperty("equals") &&
+            this.props.variables[condition.equals[0]] === condition.equals[1])
         )
           this.createRoom(condition, output);
       }
