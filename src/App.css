@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -15,7 +15,9 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #ddd;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .App-link {
@@ -35,4 +37,50 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+.App-header p {
+  font-size: calc(10px + 1vmin);
+  max-width: 500px;
+}
+
+.App-header button {
+  background: none!important;
+  color: #fff;
+  padding: 0;
+  border: none;
+  font: inherit;
+  font-size: calc(10px + 1vmin);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.App-header button:hover {
+  font-weight: bold;
+}
+
+.App-header .inv {
+  display: inline!important;
+  font-size: calc(10px + 1vmin)!important;
+}
+
+.App-header li.inv {
+  padding: 0 10px 0 0!important;
+}
+
+@media only screen and (max-width: 720px) {
+  .App-header > * {
+    max-width: 85%;
+    margin: auto;
+  }
+  .App-header p {
+    font-size: calc(10px + 1.5vmin);
+  }
+  .App-header button {
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 20px;
+    background: default;
+    font-size: calc(10px + 1.5vmin);
+  }
 }

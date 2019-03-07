@@ -4,6 +4,7 @@ export class Inventory extends Component {
   render() {
     const handleClick = this.props.handleClick;
 
+    let itemsPresent = false;
     const inv = this.props.inventory;
     let arr = Object.keys(inv).map((key, index) => {
       let item = inv[key];
@@ -42,8 +43,9 @@ export class Inventory extends Component {
       }
 
       if (item.status) {
+        itemsPresent = true;
         return (
-        <li key={index}>
+        <li key={index} className="inv">
           <button
             onClick={() => handleClick(text, key, gameover, destination, used)}>
             {item.name}
@@ -51,6 +53,15 @@ export class Inventory extends Component {
         </li>
       )} else return null;
     });
-    return <ul>{arr}</ul>;
+    if (itemsPresent) {
+      return (
+        <div>
+        <ul>
+          <li className="inv">Inventory:</li>
+          {arr}
+        </ul>
+        </div>
+      );
+    } else return <ul>{arr}</ul>;
   }
 }

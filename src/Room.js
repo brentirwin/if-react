@@ -29,12 +29,14 @@ export class Room extends Component {
     const inventory = (this.props.firstRoom || this.props.gameover) ? (
       ""
     ) : (
+      <div id="inventory">
       <Inventory
 	  	inventory={this.props.variables.inventory}
 		handleClick={this.props.invClick}
 		roomKey={this.props.roomKey}
     variables={this.props.variables}
 	  />
+    </div>
     );
 
     return (

@@ -1,0 +1,215 @@
+{
+	"variables": {
+		"preset": [
+			{
+				"name": "is_your_mom",
+				"value": true
+			},
+			{
+				"name": "is_your_dad",
+				"value": "Pops"
+			},
+			{
+				"name": "my_age",
+				"value": 25
+			},
+			{
+				"name": "bool1",
+				"value": true
+			},
+			{
+				"name": "bool2",
+				"value": false
+			},
+			{
+				"name": "hasBeenInside",
+				"value": false
+			}
+		],
+		"random": [
+			{
+				"name": "multiple_choice",
+				"value": [1, 2, 3, 4]
+			},
+			{
+				"name": "qA",
+				"value": ["choice 1", "choice 2", "choice 3", "choice 4"],
+				"question": "What is the answer to qA?",
+				"failure": "You don't know the answer to qA."
+			},
+			{
+				"name": "qB",
+				"value": ["choice 1", "choice 2", "choice 3", "choice 4"],
+				"question": "What is the answer to qB?",
+				"failure": "You don't know the answer to qB."
+			},
+			{
+				"name": "qC",
+				"value": ["choice 1", "choice 2", "choice 3", "choice 4"],
+				"question": "What is the answer to qC?",
+				"failure": "You don't know the answer to qC."
+			},
+			{
+				"name": "qD",
+				"value": ["choice 1", "choice 2", "choice 3", "choice 4"],
+				"question": "What is the answer to qD?",
+				"failure": "You don't know the answer to qD."
+			}
+		],
+		"permutation": [
+			{
+				"names": ["q1", "q2"],
+				"values": [1, 2, 3, 4]
+			},
+			{
+				"names": ["quiz1", "quiz2"],
+				"values": ["qA", "qB", "qC", "qD"]
+			}
+		]
+	},
+	"rooms": {
+		"quiz": {
+			"quiz1": {
+				"description": "\"Let the quiz begin!\" the ghoul cackles.",
+				"success": "quiz.q2"
+			},
+			"quiz2": {
+				"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes.",
+				"success": "gameover.victory"
+			}
+		},
+		"home": {
+			"name": "if-react",
+			"description": "This is the homepage.",
+			"start": "outside"
+		},
+		"outside": {
+			"name": "Outside",
+			"description": ["You are outside. ", "$is_your_dad", " Yes, you are."],
+			"soft_links": [
+				{
+					"text": "Get pickaxe",
+					"action": "You got the pickaxe",
+					"updates": {
+						"true": ["inventory.pickaxe"]
+					}
+				}
+			],
+      "conditions": [
+        {
+          "equals": ["multiple_choice", 1],
+          "description": "multiple_choice === 1"
+        }
+      ],
+			"links": [
+				{
+					"text": "Go inside.",
+					"action": "inside",
+					"updates": {
+						"true": ["hasBeenInside"]
+					}
+				},
+				{
+					"text": "The conditional room.",
+					"action": "conditional"
+				},
+				{
+					"text": "Go die.",
+					"action": "gameover.room1"
+				}
+			]
+		},
+		"inside": {
+			"name": "Inside",
+			"description": ["You are inside.\nThis is a new line"],
+			"soft_links": [
+				{
+					"text": "Show more text.",
+					"action": "I made more text appear!"
+				}
+			],
+			"links": [
+				{
+					"text": "Go outside.",
+					"action": "outside"
+				},
+				{
+					"text": "Also go outside.",
+					"action": "outside"
+				}
+			]
+		},
+		"conditional": {
+			"name": "The conditional room",
+			"description": "You will never see me!",
+			"links": [
+				{
+					"text": "Back outside.",
+					"action": "outside"
+				}
+			],
+			"soft_links": [
+				{
+					"text": "Make bool1 true and bool2 false",
+					"action": "Did it.",
+					"updates": {
+						"true": ["bool1"],
+						"false": ["bool2"]
+					}
+				},
+				{
+					"text": "Make bool1 and bool2 false",
+					"action": "Did it.",
+					"updates": {
+						"false": ["bool1", "bool2"]
+					}
+				}
+			],
+			"conditions": [
+				{
+					"true": "bool1",
+					"description": "1 is true, 2 is false",
+					"conditions": [
+						{
+							"true": "bool2",
+							"description": "1 and 2 are both true!"
+						}
+					]
+				},
+				{
+					"false": "bool1",
+					"description": "1 is false!"
+				}
+			]
+		},
+		"gameover": {
+			"room1": {
+				"name": "You died.",
+				"description": "Game over."
+			},
+			"victory": {
+				"name": "You win!",
+				"description": "With your pickaxe!"
+			}
+		}
+	},
+	"inventory": {
+		"pickaxe": {
+			"name": "Pickaxe",
+			"status": false,
+			"conditions": [
+				{
+					"room": "inside",
+          "true": ["is_your_mom"],
+					"destination": "gameover.victory"
+				},
+				{
+					"room": "outside",
+					"destination": "gameover.room1",
+					"used": true
+				}
+			],
+			"default": "Ain't nothing to pick here."
+		}
+	}
+}
