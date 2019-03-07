@@ -87,7 +87,7 @@ An item in the inventory has the following properties: `name`, `status`, `condit
 
 `default` represents the text that will be displayed if you attempt to use the object under any circumstances that don't produce a result.
 
-`conditions` is an array containing objects. These objects contain a few properties. `room` is the ID of the room that will trigger a result if you use the item inside. `destination` is where you will be redirected when using the item in these circumstances. An optional property: `"used": true` may be added to remove the item from your inventory when it is used.
+`conditions` is an array containing objects. These objects contain a few properties. `room` is the ID of the room that will trigger a result if you use the item inside. `true` or `false` are arrays with additional booleans that must be correct in `variables` for this condition to trigger. `destination` is where you will be redirected when using the item in these circumstances. An optional property: `"used": true` may be added to remove the item from your inventory when it is used.
 
 ```javascript
 "pickaxe": {
@@ -96,6 +96,8 @@ An item in the inventory has the following properties: `name`, `status`, `condit
 	"default": "Ain't nothin' to pick here.",
 	"conditions": [
 		"room": "mine",
+		"true": ["bool1"],
+		"false": ["bool2", "bool3"],
 		"destination": "gold_reserve",
 		"used": true
 	]
