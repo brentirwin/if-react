@@ -26,7 +26,7 @@ export class Room extends Component {
       ""
     );
 
-    const inventory = this.props.firstRoom ? (
+    const inventory = (this.props.firstRoom || this.props.gameover) ? (
       ""
     ) : (
       <Inventory
