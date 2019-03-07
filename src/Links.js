@@ -36,7 +36,9 @@ export class Links extends Component {
 	  }
 
       // Is it a game over?
-      const gameover = link.action.startsWith("gameover.") ? true : false;
+      const gameover = (!Array.isArray(link.action) &&
+                        link.action.startsWith("gameover."))
+                        ? true : false;
       const destination = gameover ? link.action.substring(9) : link.action;
 
       // Generate the button
