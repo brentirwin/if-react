@@ -194,7 +194,9 @@
 			"conditions": [
 				{
 					"room": "inside",
-					"destination": "gameover.victory"
+          "true": ["is_your_mom"],
+					"destination": "gameover.victory",
+          "used": true
 				},
 				{
 					"room": "outside",

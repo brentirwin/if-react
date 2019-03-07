@@ -14,8 +14,22 @@ export class Inventory extends Component {
 
       // Use conditions
       for (let i in item.conditions) {
-        let condition = item.conditions[i];
-        if (condition.room === this.props.roomKey) {
+        const condition = item.conditions[i];
+
+        const conditionsMet = () => {
+          if (condition.room !== this.props.roomKey) return false;
+          if (condition.hasOwnProperty("true"))
+            for (let i in condition.true)
+              if (this.props.variables[condition.true[i]] !== true)
+                return false;
+          if (condition.hasOwnProperty("false"))
+            for (let i in condition.false)
+              if (this.props.variables[condition.false[i]] !== false)
+                return false;
+          return true;
+        }
+
+        if (conditionsMet()) {
           text = '';
           used = condition.used;
           destination = condition.destination;

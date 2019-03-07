@@ -33,6 +33,7 @@ export class Room extends Component {
 	  	inventory={this.props.variables.inventory}
 		handleClick={this.props.invClick}
 		roomKey={this.props.roomKey}
+    variables={this.props.variables}
 	  />
     );
 
