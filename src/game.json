@@ -96,7 +96,7 @@
 		"outside": {
 			"description": [
 				"You find yourself in an eerie old town. The cobblestone streets are narrow and the tall buildings seem to cave in above you.\n",
-				"You hear a whimpering coming from a dark alley. You go to investigate adn find a small boy and girl crying outside of a dilapidated house with boarded windows. You ask what is wrong.\n",
+				"You hear a whimpering coming from a dark alley. You go to investigate and find a small boy and girl crying outside of a dilapidated house with boarded windows. You ask what is wrong.\n",
 				"The boy is too frightened to talk. The girl speaks up. \"We cannot go back inside,\" she says. \"Our parents keep a monster in the basement, and they're not here. Please, our baby brother is trapped inside his room.\"\n",
 				"\"Please, save our brother and stop the monster!\" the small boy says."
 			],
@@ -108,7 +108,7 @@
 			]
 		},
 		"foyer": {
-			"description": "You pass through the wrought iron gate and stare up at the tall house leaning over you. The door is already open. You walk inside and the heavy door slams behidn you. You try to get back out, but it is locked. You are trapped. Inside you see a tall grandfather clock. It chimes eleven times. To the west is a staircase. To the north and to the east are two closed doors.",
+			"description": "You pass through the wrought iron gate and stare up at the tall house leaning over you. The door is already open. You walk inside and the heavy door slams behind you. You try to get back out, but it is locked. You are trapped. Inside you see a tall grandfather clock. It chimes eleven times. To the west is a staircase. To the north and to the east are two closed doors.",
 			"conditions": [
 				{
 					"true": "has_been_inside",
@@ -218,11 +218,11 @@
 			]
 		},
 		"nursery_murder": {
-			"description": "You pull out the garlic and throw it at the ghoul. It releases a blood-curtling scream as the garlic burns through its ectoplasmic face. It dissintegrates into steam that dissipates into the air.",
+			"description": "You pull out the garlic and throw it at the ghoul. It releases a blood-curdling scream as the garlic burns through its ectoplasmic face. It disintegrates into steam that dissipates into the air.",
 			"soft_links": [
 				{
 					"text": "Inspect the crib",
-					"action": ["You once again approach the baby's crib. A nameplate above it says ", "$qName", ". As you pick up the small child, you see that it is nothing but a skelton wrapped in cloth, left to decay for centuries."]
+					"action": ["You once again approach the baby's crib. A nameplate above it says ", "$qName", ". As you pick up the small child, you see that it is nothing but a skeleton wrapped in cloth, left to decay for centuries."]
 				}
 			],
 			"links": [
@@ -264,7 +264,7 @@
 					"soft_links": [
 						{
 							"text": "Inspect the crib",
-							"action": ["You once again approach the baby's crib. A nameplate above it says ", "$qName", ". As you pick up the small child, you see that it is nothing but a skelton wrapped in cloth, left to decay for centuries."]
+							"action": ["You once again approach the baby's crib. A nameplate above it says ", "$qName", ". As you pick up the small child, you see that it is nothing but a skeleton wrapped in cloth, left to decay for centuries."]
 						}
 					],
 					"links": [
@@ -354,11 +354,11 @@
 			]
 		},
 		"attic": {
-			"description": "You enter an old unfinished attic. The floorboards creak, and a small trickle of water falls from a spot in the roof. With improper insulation, this attic is colder than the rest of the house. You see rain fall in the darkness beyond the cast iron bars on the windows. A dollhouse sits on the floor. On the bed are two small skeletons, dressed just like the children you met outside.",
+			"description": "You enter an old unfinished attic. The floorboards creak, and a small trickle of water falls from a spot in the roof. With improper insulation, this attic is colder than the rest of the house. You see rain fall in the darkness beyond the cast iron bars on the windows. A doll house sits on the floor. On the bed are two small skeletons, dressed just like the children you met outside.",
 			"soft_links": [
 				{
-					"text": "Inspect the dollhouse",
-					"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
+					"text": "Inspect the doll house",
+					"action": "Upon closer inspection, the doll house appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
 				}
 			],
 			"links": [
@@ -377,8 +377,8 @@
 					"true": "has_inspected_skeletons",
 					"soft_links": [
 						{
-							"text": "Inspect the dollhouse",
-							"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
+							"text": "Inspect the doll house",
+							"action": "Upon closer inspection, the doll house appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
 						},
 						{
 							"text": "Inspect the skeletons",
@@ -399,11 +399,11 @@
 			]
 		},
 		"attic_just_discovered_chimney": {
-			"description": "You enter an old unfinished attic. The floorboards creak, and a small trickle of water falls from a spot in the roof. With improper insulation, this attic is colder than the rest of the house. You see rain fall in the darkness beyond the cast iron bars on the windows. A dollhouse sits on the floor. On the bed are two small skeletons, dressed just like the children you met outside.\nLeaning over the skeletons, you find that they are indeed wearing the same clothes as the children you met outside. They are the same sizes, too.\n\"You found us.\" You hear a voice from behind. You turn around to see the ghosts of Rose and Thorn.\nRose begins to speak. \"Our parents sometimes lock us in our room to protect us from the monster. They say they have to keep it in the basement so that it won't escape and eat us. One day they locked us up here, and they never let us out. We heard the screams coming from the cellar every day, but we were left in here to starve. You have to slay the monster to free our souls from this curse, so that we may move on.\"\nThorn walks over to the dollhouse and speaks for the first time. \"The fireplace in here conceals a secret path to the cellar. Please go down and save us.\" He reveals in the dollhouse that the chimneyway running the entire height of the house is indeed a narrow staircase. As he does so, the fireplace in the room slides open and reveals a dark passage downward.\nWith this, the children disappear before your eyes.",
+			"description": "You enter an old unfinished attic. The floorboards creak, and a small trickle of water falls from a spot in the roof. With improper insulation, this attic is colder than the rest of the house. You see rain fall in the darkness beyond the cast iron bars on the windows. A doll house sits on the floor. On the bed are two small skeletons, dressed just like the children you met outside.\nLeaning over the skeletons, you find that they are indeed wearing the same clothes as the children you met outside. They are the same sizes, too.\n\"You found us.\" You hear a voice from behind. You turn around to see the ghosts of Rose and Thorn.\nRose begins to speak. \"Our parents sometimes lock us in our room to protect us from the monster. They say they have to keep it in the basement so that it won't escape and eat us. One day they locked us up here, and they never let us out. We heard the screams coming from the cellar every day, but we were left in here to starve. You have to slay the monster to free our souls from this curse, so that we may move on.\"\nThorn walks over to the doll house and speaks for the first time. \"The fireplace in here conceals a secret path to the cellar. Please go down and save us.\" He reveals in the doll house that the chimney-way running the entire height of the house is indeed a narrow staircase. As he does so, the fireplace in the room slides open and reveals a dark passage downward.\nWith this, the children disappear before your eyes.",
 			"soft_links": [
 				{
-					"text": "Inspect the dollhouse",
-					"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
+					"text": "Inspect the doll house",
+					"action": "Upon closer inspection, the doll house appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
 				},
 				{
 					"text": "Inspect the skeletons",
@@ -435,7 +435,7 @@
 			]
 		},
 		"trials": {
-			"description": "As you approad the south door, you hear a deadly cackle. A fiendish apparition swoops down before you, blocking the way. \"So you wish to pass?\" it asks. \"I represent the souls of all those sacrificed by the owners of this house. If you think you have what it takes to face the monster inside, you must first prove your worth. If you cannot pass my trial,\" it chuckles, \" then too bad for you. Are you ready to begin? Once you start, there is no turning back.\"",
+			"description": "As you approach the south door, you hear a deadly cackle. A fiendish apparition swoops down before you, blocking the way. \"So you wish to pass?\" it asks. \"I represent the souls of all those sacrificed by the owners of this house. If you think you have what it takes to face the monster inside, you must first prove your worth. If you cannot pass my trial,\" it chuckles, \" then too bad for you. Are you ready to begin? Once you start, there is no turning back.\"",
 			"links": [
 				{
 					"text": "Yes.",
@@ -541,7 +541,7 @@
 				},
 				{
 					"equals": ["q1", "wood"],
-					"description": "\"Let the quiz begin!\" the ghoul cackles.\nThe master bedframe is made of what type of wood?",
+					"description": "\"Let the quiz begin!\" the ghoul cackles.\nThe master bed frame is made of what type of wood?",
 					"conditions": [
 						{
 							"equals": ["qWood", "oak"],
@@ -906,7 +906,7 @@
 				},
 				{
 					"equals": ["q2", "wood"],
-					"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes.\nThe master bedframe is made of what type of wood?",
+					"description": "\"Very good. Let's see if you can get one more,\" it says with determination in its eyes.\nThe master bed frame is made of what type of wood?",
 					"conditions": [
 						{
 							"equals": ["qWood", "oak"],
@@ -1178,7 +1178,7 @@
 			]
 		},
 		"dungeon": {
-			"description": "As you cross through the doorway, a narrow path steeply leads you down into the belly of a huge cavern situated below the town. You hear drops of water echoing in the distance. In the middle of the massive floor sits a single barely-lit brazier in the darkness. You make your way to it with nowhere else to turn.\nYou stare into the flames and feel the heat against the cold dampness you've grown accustomed to. Behind you, you hear a creature smack its lips exactly once. You turn around to see a hideous meat monster, gross and deformed. Long and gangly like a lizard with arms, legs, and eyes of all different shapes and sizes protruding in every direction. At the top sits a large open hole with rows of shark-like teeth. This hold moves as the monster speaks to you. Its voice raises chills up your spine.\n\"For decades this family served me greatly. They found me poor and decrepit. I was on the brink of death. I promised them if they would feed me the joy in a human soul that I would grant them powers beyond their wildest dreams. Myrna loved this idea. She gladly drew in the town's visitors into her private 'wine cellar' so that I could devour their happiness and gain strength. I gave her the ability to control the minds of others. She coudl just as easily lure victims into my lair as she could influence the governors of the town or the barrons sitting on their piles of gold.\n\"However, Ronald seemed to have a weakness. He cared too much for the children. He pretended to go along with it, but I knew. I always know. He was planning to slay me in an attempt to protect his pathetic brats. So I gave Myrna a task. She was to use her powers to convince Ronald to feed himself to me. Her power was so great that it was no problem for her. But it turns out she was weak too. After all I had done for her, a part of her broke when she was I had eaten her lover. I saw this weakness, and I ate her as well.\n\"This was foolish on my part, for now I have not eaten in centuries. Don't worry, puny human. It won't be painful. But I will not hesitate. You will be mine. I am starving.",
+			"description": "As you cross through the doorway, a narrow path steeply leads you down into the belly of a huge cavern situated below the town. You hear drops of water echoing in the distance. In the middle of the massive floor sits a single barely-lit brazier in the darkness. You make your way to it with nowhere else to turn.\nYou stare into the flames and feel the heat against the cold dampness you've grown accustomed to. Behind you, you hear a creature smack its lips exactly once. You turn around to see a hideous meat monster, gross and deformed. Long and gangly like a lizard with arms, legs, and eyes of all different shapes and sizes protruding in every direction. At the top sits a large open hole with rows of shark-like teeth. This hold moves as the monster speaks to you. Its voice raises chills up your spine.\n\"For decades this family served me greatly. They found me poor and decrepit. I was on the brink of death. I promised them if they would feed me the joy in a human soul that I would grant them powers beyond their wildest dreams. Myrna loved this idea. She gladly drew in the town's visitors into her private 'wine cellar' so that I could devour their happiness and gain strength. I gave her the ability to control the minds of others. She could just as easily lure victims into my lair as she could influence the governors of the town or the barons sitting on their piles of gold.\n\"However, Ronald seemed to have a weakness. He cared too much for the children. He pretended to go along with it, but I knew. I always know. He was planning to slay me in an attempt to protect his pathetic brats. So I gave Myrna a task. She was to use her powers to convince Ronald to feed himself to me. Her power was so great that it was no problem for her. But it turns out she was weak too. After all I had done for her, a part of her broke when she was I had eaten her lover. I saw this weakness, and I ate her as well.\n\"This was foolish on my part, for now I have not eaten in centuries. Don't worry, puny human. It won't be painful. But I will not hesitate. You will be mine. I am starving.",
 			"links": [
 				{
 					"text": "Run!",
@@ -1196,7 +1196,7 @@
 		},
 		"gameover": {
 			"nursery": {
-				"description": "You thought you could outrun her twice? Think again. Or don't, because you're dead.\nThe ghoul grabs you by the throat. You feel her icy cold fingers sqeezing tight. You smell rotting flesh and struggle for breath as the nursemaid opens her mouth and chews into your face.\nGAME OVER"
+				"description": "You thought you could outrun her twice? Think again. Or don't, because you're dead.\nThe ghoul grabs you by the throat. You feel her icy cold fingers squeezing tight. You smell rotting flesh and struggle for breath as the nursemaid opens her mouth and chews into your face.\nGAME OVER"
 			},
 			"sword": {
 				"description": "You attempt to stab the ghoul with the sword, but it passes through it. You lean forward into the hideous creature. It grabs the sword itself and stabs you in the stomach. You fall on the ground bleeding as the nursemaid eats away your flesh.\nGAME OVER"
