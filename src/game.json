@@ -102,7 +102,7 @@
 			],
 			"links": [
 				{
-					"text": "Enter the house.",
+					"text": "Enter the house",
 					"action": "foyer"
 				}
 			]
@@ -117,23 +117,23 @@
 			],
 			"soft_links": [
 				{
-					"text": "Look at the clock.",
+					"text": "Look at the clock",
 					"action": "The clock seems to be watching you. It dongs knowingly as you approach."
 				}
 			],
 			"links": [
 				{
-					"text": "Take the door to the north.",
+					"text": "Take the door to the north",
 					"action": "dining",
 					"updates": { "true": ["has_been_inside"] }
 				},
 				{
-					"text": "Take the door to the east.",
+					"text": "Take the door to the east",
 					"action": "bedroom",
 					"updates": { "true": ["has_been_inside"] }
 				},
 				{
-					"text": "Go up the stairs.",
+					"text": "Go up the stairs to the west",
 					"action": "landing"
 				}
 			]
@@ -142,11 +142,11 @@
 			"description": "You enter a grand dining room. The table is set with fine crystal glasses and corroded sterling plates and silverware. A thick layer of dust covers everything. An eerie painting is displayed prominently on the wall.",
 			"soft_links": [
 				{
-					"text": "Look at the painting.",
+					"text": "Look at the painting",
 					"action": ["The painting, 7 feet across, depicts a man, woman, and baby. The man is holding the baby. The woman wears a ", "$qDress", " dress and looks displeased."]
 				},
 				{
-					"text": "Look at the table.",
+					"text": "Look at the table",
 					"action": "On the table you find and old, rotted bulb of garlic. You take it with you.",
 					"updates": { "true": [
 									"inventory.garlic",
@@ -158,11 +158,11 @@
 					"true": "has_taken_garlic",
 					"soft_links": [
 						{
-							"text": "Look at the painting.",
+							"text": "Look at the painting",
 							"action": ["The painting, 7 feet across, depicts a man, woman, and baby. The man is holding the baby. The woman wears a ", "$qDress", " dress and looks displeased."]
 						},
 						{
-							"text": "Look at the table.",
+							"text": "Look at the table",
 							"action": "A thick layer of dust covers the tarnished silver dinnerware."
 						}
 					]
@@ -170,7 +170,7 @@
 			],
 			"links": [
 				{
-					"text": "Return to the foyer.",
+					"text": "Return to the foyer",
 					"action": "foyer"
 				}
 			]
@@ -179,13 +179,13 @@
 			"description": "In the master bedroom stands a massive four-poster bed.",
 			"soft_links": [
 				{
-					"text": "Inspect the bed.",
+					"text": "Inspect the bed",
 					"action": ["The bed is unmade, covered in decades of dust. Blood splatters from the white sheets to the ", "$qWood", " headboard."]
 				}
 			],
 			"links": [
 				{
-					"text": "Return to the foyer.",
+					"text": "Return to the foyer",
 					"action": "foyer"
 				}
 			]
@@ -194,19 +194,19 @@
 			"description": "You are on the second floor hallway. You hear a baby crying behind a door to the south. There is another door on the north wall. The spiral staircase is on the west side of the room.",
 			"links": [
 				{
-					"text": "Go through the south door.",
+					"text": "Go through the south door",
 					"action": "nursery"
 				},
 				{
-					"text": "Go through the north door.",
+					"text": "Go through the north door",
 					"action": "library"
 				},
 				{
-					"text": "Go up the stairs.",
+					"text": "Go up the stairs",
 					"action": "attic"
 				},
 				{
-					"text": "Go down the stairs.",
+					"text": "Go down the stairs",
 					"action": "foyer"
 				}
 			],
@@ -221,7 +221,7 @@
 			"description": "You pull out the garlic and throw it at the ghoul. It releases a blood-curtling scream as the garlic burns through its ectoplasmic face. It dissintegrates into steam that dissipates into the air.",
 			"soft_links": [
 				{
-					"text": "Inspect the crib.",
+					"text": "Inspect the crib",
 					"action": ["You once again approach the baby's crib. A nameplate above it says ", "$qName", ". As you pick up the small child, you see that it is nothing but a skelton wrapped in cloth, left to decay for centuries."]
 				}
 			],
@@ -263,13 +263,13 @@
 					"description": "In the baby's bedroom, you hear nothing but your own breath.",
 					"soft_links": [
 						{
-							"text": "Inspect the crib.",
+							"text": "Inspect the crib",
 							"action": ["You once again approach the baby's crib. A nameplate above it says ", "$qName", ". As you pick up the small child, you see that it is nothing but a skelton wrapped in cloth, left to decay for centuries."]
 						}
 					],
 					"links": [
 						{
-							"text": "Exit the room.",
+							"text": "Exit the room",
 							"action": "landing"
 						}
 					]
@@ -280,31 +280,31 @@
 			"description": "You enter an old library. The walls are covered with bookshelves reaching the 12-foot ceilings. A desk sits in the center.",
 			"soft_links": [
 				{
-					"text": "Inspect the desk.",
+					"text": "Inspect the desk",
 					"action": ["On the desk you see a sheet of paper titled \"SACRIFICES, ", "$qYear", "\". A list of names runs down the page next to dates hundreds of years old."]
 				}
 			],
 			"links": [
 				{
-					"text": "Return to the landing.",
-					"action": "landing"
-				},
-				{
-					"text": "Go through the secret door.",
+					"text": "Go through the secret door",
 					"action": "secret_room"
-				}
+				},
+        {
+          "text": "Return to the landing",
+          "action": "landing"
+        }
 			],
 			"conditions": [
 				{
 					"false": "has_inspected_books",
 					"links": [
 						{
-							"text": "Inspect the bookshelves.",
+							"text": "Inspect the bookshelves",
 							"action": "library_just_inspected",
 							"updates": { "true": ["has_inspected_books"] }
 						},
 						{
-							"text": "Return to the landing.",
+							"text": "Return to the landing",
 							"action": "landing"
 						}
 					]
@@ -315,26 +315,26 @@
 			"description": "You enter an old library. The walls are covered with bookshelves reaching the 12-foot ceilings. A desk sits in the center.\nAs you search through the books, one stands out. Nearly 6 inches thick, it is titled \"Magick and Grimories\". When you pull it out, a secret door opens to the east.",
 			"soft_links": [
 				{
-					"text": "Inspect the desk.",
+					"text": "Inspect the desk",
 					"action": ["On the desk you see a sheet of paper titled \"SACRIFICES, ", "$qYear", "\". A list of names runs down the page next to dates hundreds of years old."]
 				}
 			],
 			"links": [
 				{
-					"text": "Return to the landing.",
-					"action": "landing"
-				},
-				{
-					"text": "Go through the secret door.",
+					"text": "Go through the secret door",
 					"action": "secret_room"
-				}
+				},
+        {
+          "text": "Return to the landing",
+          "action": "landing"
+        }
 			]
 		},
 		"secret_room": {
 			"description": "You pull back the bookcase and walk into the small secret room. Inside lies an empty chest.",
 			"links": [
 				{
-					"text": "Return to the library.",
+					"text": "Return to the library",
 					"action": "library"
 				}
 			],
@@ -344,7 +344,7 @@
 					"description": "You pull back the bookcase and walk into the small secret room. Inside lies a chest.",
 					"soft_links": [
 						{
-							"text": "Open the chest.",
+							"text": "Open the chest",
 							"action": "You open the chest. Inside you find a sword. You take it with you.",
 							"updates": { "true": ["has_taken_sword",
 											"inventory.sword"] }
@@ -357,18 +357,18 @@
 			"description": "You enter an old unfinished attic. The floorboards creak, and a small trickle of water falls from a spot in the roof. With improper insulation, this attic is colder than the rest of the house. You see rain fall in the darkness beyond the cast iron bars on the windows. A dollhouse sits on the floor. On the bed are two small skeletons, dressed just like the children you met outside.",
 			"soft_links": [
 				{
-					"text": "Inspect the dollhouse.",
+					"text": "Inspect the dollhouse",
 					"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
 				}
 			],
 			"links": [
 				{
-					"text": "Inspect the skeletons.",
+					"text": "Inspect the skeletons",
 					"action": "attic_just_discovered_chimney",
 					"updates": { "true": ["has_inspected_skeletons"] }
 				},
 				{
-					"text": "Go back downstairs.",
+					"text": "Go back downstairs",
 					"action": "landing"
 				}
 			],
@@ -377,21 +377,21 @@
 					"true": "has_inspected_skeletons",
 					"soft_links": [
 						{
-							"text": "Inspect the dollhouse.",
+							"text": "Inspect the dollhouse",
 							"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
 						},
 						{
-							"text": "Inspect the skeletons.",
+							"text": "Inspect the skeletons",
 							"action": "You see the long-decayed skeletons of the children you just met. Is their fate already sealed?"
 						}
 					],
 					"links": [
 						{
-							"text": "Take the secret chute to the cellar.",
+							"text": "Take the secret chute to the cellar",
 							"action": "cellar"
 						},
 						{
-							"text": "Go back downstairs.",
+							"text": "Go back downstairs",
 							"action": "landing"
 						}
 					]
@@ -402,21 +402,21 @@
 			"description": "You enter an old unfinished attic. The floorboards creak, and a small trickle of water falls from a spot in the roof. With improper insulation, this attic is colder than the rest of the house. You see rain fall in the darkness beyond the cast iron bars on the windows. A dollhouse sits on the floor. On the bed are two small skeletons, dressed just like the children you met outside.\nLeaning over the skeletons, you find that they are indeed wearing the same clothes as the children you met outside. They are the same sizes, too.\n\"You found us.\" You hear a voice from behind. You turn around to see the ghosts of Rose and Thorn.\nRose begins to speak. \"Our parents sometimes lock us in our room to protect us from the monster. They say they have to keep it in the basement so that it won't escape and eat us. One day they locked us up here, and they never let us out. We heard the screams coming from the cellar every day, but we were left in here to starve. You have to slay the monster to free our souls from this curse, so that we may move on.\"\nThorn walks over to the dollhouse and speaks for the first time. \"The fireplace in here conceals a secret path to the cellar. Please go down and save us.\" He reveals in the dollhouse that the chimneyway running the entire height of the house is indeed a narrow staircase. As he does so, the fireplace in the room slides open and reveals a dark passage downward.\nWith this, the children disappear before your eyes.",
 			"soft_links": [
 				{
-					"text": "Inspect the dollhouse.",
+					"text": "Inspect the dollhouse",
 					"action": "Upon closer inspection, the dollhouse appears to be eerily similar to the house you are in. The rooms are laid out the same way, painted the same, and containing the same furniture as their counterparts in the room you are in now. It even has the same thick layer of dust you have seen everywhere."
 				},
 				{
-					"text": "Inspect the skeletons.",
+					"text": "Inspect the skeletons",
 					"action": "You see the long-decayed skeletons of the children you just met. Is their fate already sealed?"
 				}
 			],
 			"links": [
 				{
-					"text": "Take the secret chute to the cellar.",
+					"text": "Take the secret chute to the cellar",
 					"action": "cellar"
 				},
 				{
-					"text": "Go back downstairs.",
+					"text": "Go back downstairs",
 					"action": "landing"
 				}
 			]
@@ -425,11 +425,11 @@
 			"description": "The cellar is made completely of dank, moldy flagstone. A door is on the south side of the room.",
 			"links": [
 				{
-					"text": "Head south.",
+					"text": "Head south",
 					"action": "trials"
 				},
 				{
-					"text": "Go back up the narrow stairs.",
+					"text": "Go back up the narrow stairs",
 					"action": "attic"
 				}
 			]
