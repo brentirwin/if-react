@@ -37,7 +37,7 @@
 			},
 			{
 				"name": "qWood",
-				"value": ["oak", "ask", "ebony", "mahogany"]
+				"value": ["oak", "ash", "ebony", "mahogany"]
 			},
 			{
 				"name": "qName",
