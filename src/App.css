@@ -79,6 +79,7 @@ ul {
     font-size: calc(10px + 1.5vmin);
   }
   .App-header button {
+    display: block;
     border: 1px solid white;
     padding: 20px;
     border-radius: 20px;
